@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Logic Circuits &amp; Switching Theory — Complete Problem Bank (84 Images)</title>
+<style>
+  :root {
+    --bg: #f6f7fb;
+    --surface: #ffffff;
+    --surface-2: #f1f4f9;
+    --border: #dde3ee;
+    --text: #141b2d;
+    --text-muted: #556179;
+    --accent: #a6192e;
+    --accent-soft: #fdf1f3;
+    --accent-border: #f0c2c9;
+    --blue: #1d4ed8;
+    --blue-soft: #eff6ff;
+    --green: #0f766e;
+    --green-soft: #ecfdf5;
+    --amber: #b45309;
+    --amber-soft: #fffbeb;
+    --red: #b91c1c;
+    --red-soft: #fef2f2;
+    --code-bg: #f8fafc;
+    --shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+    --radius: 14px;
+    --mono: ui-monospace, "Cascadia Code", "Consolas", "SFMono-Regular", Menlo, monospace;
+    --sans: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  }
+  [data-theme="dark"] {
+    --bg: #0d121f;
+    --surface: #151c2e;
+    --surface-2: #1c253b;
+    --border: #293550;
+    --text: #edf2ff;
+    --text-muted: #9aa7c2;
+    --accent: #f43f5e;
+    --accent-soft: #2c1520;
+    --accent-border: #6b2135;
+    --blue: #60a5fa;
+    --blue-soft: #172544;
+    --green: #34d399;
+    --green-soft: #102a27;
+    --amber: #fbbf24;
+    --amber-soft: #2e2412;
+    --red: #f87171;
+    --red-soft: #31171b;
+    --code-bg: #101625;
+    --shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  /* Header */
+  .hero {
+    background: linear-gradient(135deg, #1b243b 0%, #2c1828 55%, #7c1426 100%);
+    color: #fff;
+    padding: 28px 24px 24px;
+    border-bottom: 3px solid #d4af37;
+  }
+  .hero-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #f3d27a;
+    margin-bottom: 6px;
+  }
+  h1 {
+    margin: 0 0 6px;
+    font-size: clamp(1.5rem, 2.8vw, 2.15rem);
+    line-height: 1.2;
+  }
+  .subtitle {
+    margin: 0;
+    color: rgba(255,255,255,0.82);
+    font-size: 0.96rem;
+    max-width: 780px;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .btn-hero {
+    background: rgba(255,255,255,0.14);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.28);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .btn-hero:hover { background: rgba(255,255,255,0.24); }
+
+  /* Stats strip */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 12px;
+    padding: 12px 15px;
+  }
+  .stat-val {
+    font-size: 1.55rem;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.78);
+    margin-top: 3px;
+  }
+  .progress-wrap {
+    margin-top: 8px;
+    height: 6px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #34d399;
+    transition: width 0.25s ease;
+  }
+
+  /* Sticky Controls */
+  .controls-bar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    padding: 14px 24px;
+  }
+  .controls-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .controls-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .search-input {
+    flex: 1 1 260px;
+    padding: 9px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--text);
+    font-size: 0.92rem;
+    outline: none;
+  }
+  .search-input:focus { border-color: var(--accent); }
+  .seg-group {
+    display: inline-flex;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 3px;
+    gap: 3px;
+  }
+  .seg-btn {
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    padding: 6px 12px;
+    border-radius: 7px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.15s;
+  }
+  .seg-btn.active {
+    background: var(--accent);
+    color: #fff;
+  }
+  .ctrl-btn {
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .pill-row {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .pill {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-muted);
+    padding: 5px 11px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.15s;
+  }
+  .pill:hover { border-color: var(--accent); color: var(--text); }
+  .pill.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .pill-count {
+    background: rgba(128,128,128,0.16);
+    padding: 1px 6px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+  }
+  .pill.active .pill-count { background: rgba(255,255,255,0.25); }
+
+  /* Main Container */
+  .main {
+    max-width: 1180px;
+    margin: 24px auto 64px;
+    padding: 0 24px;
+  }
+  .result-meta {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Topic Section */
+  .topic-section {
+    margin-bottom: 34px;
+  }
+  .topic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+    margin-bottom: 16px;
+    border-bottom: 2px solid var(--border);
+  }
+  .topic-title {
+    margin: 0;
+    font-size: 1.32rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .topic-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.86rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .topic-desc {
+    margin: 4px 0 0 38px;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+  .topic-badge {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  /* Problem Card */
+  .card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    box-shadow: var(--shadow);
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .card.done {
+    border-left: 4px solid var(--green);
+  }
+  .card:target {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .card-badges {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-wrap: wrap;
+  }
+  .pid {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .diff-badge {
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .diff-low { background: var(--green-soft); color: var(--green); border: 1px solid currentColor; }
+  .diff-mid { background: var(--amber-soft); color: var(--amber); border: 1px solid currentColor; }
+  .diff-high { background: var(--red-soft); color: var(--red); border: 1px solid currentColor; }
+  .subtopic-tag {
+    font-size: 0.77rem;
+    font-weight: 600;
+    color: var(--blue);
+    background: var(--blue-soft);
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+  .done-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    user-select: none;
+  }
+  .done-toggle input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--green);
+    cursor: pointer;
+  }
+
+  .card-title {
+    margin: 4px 0 8px;
+    font-size: 1.06rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .card-statement {
+    margin: 0 0 10px;
+    font-size: 0.94rem;
+    color: var(--text);
+  }
+  .given-box {
+    font-family: var(--mono);
+    font-size: 0.84rem;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--blue);
+    border-radius: 8px;
+    padding: 9px 12px;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+    overflow-x: auto;
+  }
+  .reason-line {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+  .erratum-note {
+    font-size: 0.82rem;
+    background: var(--amber-soft);
+    color: var(--amber);
+    border: 1px solid currentColor;
+    border-radius: 8px;
+    padding: 8px 11px;
+    margin-bottom: 10px;
+  }
+
+  /* Solution accordion */
+  details.sol-box {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 6px;
+  }
+  details.sol-box summary {
+    padding: 9px 13px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--accent);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  details.sol-box summary::-webkit-details-marker { display: none; }
+  details.sol-box summary::after {
+    content: "▸ Show";
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+  details.sol-box[open] summary::after { content: "▾ Hide"; }
+  .sol-content {
+    padding: 12px 14px;
+    border-top: 1px solid var(--border);
+    background: var(--code-bg);
+    font-family: var(--mono);
+    font-size: 0.84rem;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    line-height: 1.55;
+  }
+
+  /* Sources footer inside card */
+  .card-sources {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  .src-chip {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    padding: 2px 7px;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+  .src-chip:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Reference & Coverage Appendix */
+  .appendix {
+    margin-top: 44px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    box-shadow: var(--shadow);
+  }
+  .appendix h2 {
+    margin: 0 0 8px;
+    font-size: 1.15rem;
+  }
+  .ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+    margin: 12px 0 18px;
+  }
+  .ref-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .ref-card strong { display: block; margin-bottom: 4px; }
+  .img-table-wrap {
+    overflow-x: auto;
+    margin-top: 12px;
+  }
+  table.img-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+  }
+  table.img-table th, table.img-table td {
+    border-bottom: 1px solid var(--border);
+    padding: 7px 10px;
+    text-align: left;
+  }
+  table.img-table th {
+    background: var(--surface-2);
+    font-weight: 700;
+  }
+  .jump-link {
+    font-family: var(--mono);
+    font-weight: 700;
+    color: var(--blue);
+    text-decoration: none;
+    margin-right: 6px;
+  }
+  .jump-link:hover { text-decoration: underline; }
+
+  .empty-state {
+    text-align: center;
+    padding: 48px 20px;
+    color: var(--text-muted);
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+  }
+
+  @media print {
+    .controls-bar, .hero-actions, .done-toggle { display: none !important; }
+    .card { break-inside: avoid; box-shadow: none; }
+    details.sol-box { display: block; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div>
+        <div class="eyebrow">Extracted from PairDrop_files_20261122_2157 · 100% Image Coverage</div>
+        <h1>Logic Circuits &amp; Switching Theory — Complete Problem Bank</h1>
+        <p class="subtitle">
+          Every problem, worked example, and board exercise extracted across all 84 images (68 JPEG + 16 HEIC),
+          deduplicated across multi-angle shots, organized by topic, and ranked from least to most complicated (Level 1 → 10).
+        </p>
+      </div>
+      <div class="hero-actions">
+        <button class="btn-hero" id="themeBtn" type="button">🌙 Dark Mode</button>
+        <button class="btn-hero" onclick="window.print()" type="button">🖨️ Print / PDF</button>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-val" id="statImages">84 / 84</div>
+        <div class="stat-label">Images Analyzed (81 Problem + 3 Reference)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" id="statProblems">52</div>
+        <div class="stat-label">Unique Consolidated Problems</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" id="statTopics">7</div>
+        <div class="stat-label">Topics (Foundational → Advanced)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" id="statProgress">0 / 52</div>
+        <div class="stat-label">Practiced Progress</div>
+        <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="controls-bar" aria-label="Filters and View Options">
+  <div class="controls-inner">
+    <div class="controls-row">
+      <input class="search-input" id="searchInput" type="search" placeholder="Search problems, equations, minterms (e.g. Σm, De Morgan, 5-var, IMG_4563)..." />
+
+      <div class="seg-group" role="group" aria-label="Sort view">
+        <button class="seg-btn active" data-view="by-topic" type="button">By Topic (Easy → Hard)</button>
+        <button class="seg-btn" data-view="by-complexity" type="button">All: Least → Most Complicated</button>
+      </div>
+
+      <div class="seg-group" role="group" aria-label="Difficulty filter">
+        <button class="seg-btn active" data-diff="all" type="button">All Levels</button>
+        <button class="seg-btn" data-diff="low" type="button">1–3 Basic</button>
+        <button class="seg-btn" data-diff="mid" type="button">4–6 Interm.</button>
+        <button class="seg-btn" data-diff="high" type="button">7–10 Adv.</button>
+      </div>
+
+      <button class="ctrl-btn" id="toggleAllSolBtn" type="button">Expand All Solutions</button>
+    </div>
+
+    <div class="pill-row" id="topicPills"></div>
+  </div>
+</section>
+
+<main class="main">
+  <div class="result-meta">
+    <span id="resultCount"></span>
+    <span>Sorted strictly from <strong>Least Complicated (1)</strong> to <strong>Most Complicated (10)</strong></span>
+  </div>
+
+  <div id="problemContainer"></div>
+
+  <section class="appendix">
+    <h2>Reference-Only Images (No Problems Posed)</h2>
+    <p style="margin:0 0 10px; font-size:0.88rem; color:var(--text-muted);">
+      3 of the 84 images in the folder were pure concept/template slides without an exercise:
+    </p>
+    <div class="ref-grid" id="refGrid"></div>
+
+    <details>
+      <summary style="cursor:pointer; font-weight:700; color:var(--accent); font-size:0.92rem;">
+        Full 84-Image Coverage Verification Index (Click to expand)
+      </summary>
+      <div class="img-table-wrap">
+        <table class="img-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Source Image File</th>
+              <th>Category</th>
+              <th>Mapped Problem(s) / Reference Note</th>
+            </tr>
+          </thead>
+          <tbody id="imgTableBody"></tbody>
+        </table>
+      </div>
+    </details>
+  </section>
+</main>
+
+<script>
+const DATA = {"source_folder": "PairDrop_files_20261122_2157", "total_images": 84, "topics": [{"id": "truth-tables", "name": "Truth Tables & Logic Evaluation", "short": "Truth Tables", "order": 1, "description": "Evaluating 3-variable and 4-variable Boolean expressions row-by-row using intermediate columns to construct complete truth tables."}, {"id": "boolean-algebra", "name": "Boolean Algebra & Algebraic Simplification", "short": "Boolean Algebra", "order": 2, "description": "Simplifying Boolean expressions using identity, dominance, complement, idempotent, absorption, distributive, and De Morgan's theorems."}, {"id": "canonical-forms", "name": "Canonical & Standard Forms (Minterms & Maxterms)", "short": "Canonical Forms", "order": 3, "description": "Converting between truth tables, circuits, SOP/POS expressions, canonical sum of minterms (Σm), canonical product of maxterms (∏M), and function complements."}, {"id": "combinational-circuits", "name": "Combinational Logic Circuits (Design & Analysis)", "short": "Logic Circuits", "order": 4, "description": "Implementing Boolean expressions with NOT/AND/OR gates in simulation, and deriving & algebraically simplifying expressions from multi-level gate schematics."}, {"id": "karnaugh-maps", "name": "Karnaugh Maps (4-Variable & 5-Variable Minimization)", "short": "Karnaugh Maps", "order": 5, "description": "Minimizing 4-variable and 5-variable Boolean functions into minimum SOP and POS forms, including don't-care conditions, essential prime implicants, and multiple minimal covers."}, {"id": "quine-mccluskey", "name": "Quine-McCluskey (Tabular) Method", "short": "Quine-McCluskey", "order": 6, "description": "Systematic tabular minimization (Tables I–III and Prime Implicant Charts) for 4-variable and 5-variable functions, including complement-based POS minimization and don't cares."}, {"id": "op-amps", "name": "Operational Amplifier Circuits (Analog Electronics)", "short": "Op-Amp Circuits", "order": 7, "description": "Handwritten analog electronics exercises included in the folder covering ideal op-amp integrator, differentiator, and difference amplifier nodal analysis."}], "problems": [{"id": "TT-01", "topic_id": "truth-tables", "subtopic": "3-Variable POS Truth Table", "complexity": 2, "complexity_reason": "Basic 8-row, 3-variable truth table with simple OR and NOT intermediate columns.", "title": "Construct the truth table for X = (A + B)(B' + C)", "statement": "Construct the complete 3-variable truth table for the Boolean expression X = (A + B)(B' + C), where A is MSB (weight 4), B has weight 2, and C is LSB (weight 1).", "given": "X = (A + B)(B' + C)  |  Variables: A (4), B (2), C (1)", "solution": "Intermediate columns (A, B, C -> A+B | B' | B'+C | X):\n000 -> 0 | 1 | 1 | 0\n001 -> 0 | 1 | 1 | 0\n010 -> 1 | 0 | 0 | 0\n011 -> 1 | 0 | 1 | 1\n100 -> 1 | 1 | 1 | 1\n101 -> 1 | 1 | 1 | 1\n110 -> 1 | 0 | 0 | 0\n111 -> 1 | 0 | 1 | 1\n\nResult: X = Σm(3, 4, 5, 7)", "note": "", "sources": ["att.ORQiidIwmivElNZ6h2kEF5x--MkKKXRT7Ud1jru2N8U.jpeg"]}, {"id": "TT-02", "topic_id": "truth-tables", "subtopic": "3-Variable SOP Truth Table", "complexity": 2, "complexity_reason": "8-row, 3-variable truth table evaluating four product terms and ORing them together.", "title": "Construct the truth table for F(A, B, C) = A'C + A'B + AB'C + BC", "statement": "Construct the truth table for the 3-variable SOP Boolean function F(A, B, C) = A'C + A'B + AB'C + BC by evaluating each product term and the final output F.", "given": "F(A, B, C) = A'C + A'B + AB'C + BC", "solution": "Columns (A B C | A'C | A'B | AB'C | BC | F):\n0 0 0 | 0 | 0 | 0 | 0 | 0\n0 0 1 | 1 | 0 | 0 | 0 | 1\n0 1 0 | 0 | 1 | 0 | 0 | 1\n0 1 1 | 1 | 1 | 0 | 1 | 1\n1 0 0 | 0 | 0 | 0 | 0 | 0\n1 0 1 | 0 | 0 | 1 | 0 | 1\n1 1 0 | 0 | 0 | 0 | 0 | 0\n1 1 1 | 0 | 0 | 0 | 1 | 1\n\nResult: F = Σm(1, 2, 3, 5, 7)", "note": "", "sources": ["att.ILr621Y3Wu1WYPjv2dgt5qwaPiX0fOwxG8iy5XjPDCg.jpeg", "att.yf9eeBMR4-0LYuz94uMn_khKNZzuH4T-kMkVUdGIwZ4.jpeg"]}, {"id": "TT-03", "topic_id": "truth-tables", "subtopic": "3-Variable Nested Expression Truth Table", "complexity": 3, "complexity_reason": "8-row, 3-variable truth table for a multi-level nested expression requiring an intermediate variable m.", "title": "Construct the truth table for X = [(A + B')(B + C)](B)", "statement": "Construct the complete 3-variable truth table for the nested Boolean expression X = [(A + B')(B + C)](B).", "given": "X = [(A + B')(B + C)](B)  |  Let m = (A + B')(B + C)", "solution": "Columns (A B C | B' | A+B' | B+C | m | X = m·B):\n0 0 0 | 1 | 1 | 0 | 0 | 0\n0 0 1 | 1 | 1 | 1 | 1 | 0\n0 1 0 | 0 | 0 | 1 | 0 | 0\n0 1 1 | 0 | 0 | 1 | 0 | 0\n1 0 0 | 1 | 1 | 0 | 0 | 0\n1 0 1 | 1 | 1 | 1 | 1 | 0\n1 1 0 | 0 | 1 | 1 | 1 | 1\n1 1 1 | 0 | 1 | 1 | 1 | 1\n\nResult: X = Σm(6, 7) (simplifies to AB)", "note": "", "sources": ["att.H4Xt7O0A_BRok28T5TkL4vtUz5TYft8RcrxM7wwaQJE.jpeg", "att.K779rP89ZM8CmAz0_2QLsYpBv7SHJCOWI7-lUhtAyb8.jpeg"]}, {"id": "TT-04", "topic_id": "truth-tables", "subtopic": "3-Variable Compound Expression Truth Table", "complexity": 3, "complexity_reason": "8-row, 3-variable truth table combining parenthesized product/sum subexpressions across four intermediate columns.", "title": "Construct the truth table for X = (A + B)(B') + B' + BC", "statement": "Construct the complete 3-variable truth table for the compound Boolean expression X = (A + B)(B') + B' + BC.", "given": "X = (A + B)(B') + B' + BC", "solution": "Columns (A B C | A+B | B' | (A+B)B' | BC | X):\n0 0 0 | 0 | 1 | 0 | 0 | 1\n0 0 1 | 0 | 1 | 0 | 0 | 1\n0 1 0 | 1 | 0 | 0 | 0 | 0\n0 1 1 | 1 | 0 | 0 | 1 | 1\n1 0 0 | 1 | 1 | 1 | 0 | 1\n1 0 1 | 1 | 1 | 1 | 0 | 1\n1 1 0 | 1 | 0 | 0 | 0 | 0\n1 1 1 | 1 | 0 | 0 | 1 | 1\n\nResult: X = Σm(0, 1, 3, 4, 5, 7) (simplifies to B' + C)", "note": "", "sources": ["att.K779rP89ZM8CmAz0_2QLsYpBv7SHJCOWI7-lUhtAyb8.jpeg"]}, {"id": "TT-05", "topic_id": "truth-tables", "subtopic": "4-Variable SOP Truth Table", "complexity": 3, "complexity_reason": "16-row, 4-variable truth table evaluating three product terms and ORing them for output F.", "title": "Construct the 4-variable truth table for F(A, B, C, D) = B'D' + B'C + A'CD'", "statement": "Construct the complete 16-row truth table for the 4-variable Boolean function F(A, B, C, D) = B'D' + B'C + A'CD' by evaluating each product term and the final output F.", "given": "F(A, B, C, D) = B'D' + B'C + A'CD'", "solution": "Rows 0–15 (ABCD | B'D' | B'C | A'CD' | F):\n0000 | 1 | 0 | 0 | 1     1000 | 1 | 0 | 0 | 1\n0001 | 0 | 0 | 0 | 0     1001 | 0 | 0 | 0 | 0\n0010 | 1 | 1 | 1 | 1     1010 | 1 | 1 | 0 | 1\n0011 | 0 | 1 | 0 | 1     1011 | 0 | 1 | 0 | 1\n0100 | 0 | 0 | 0 | 0     1100 | 0 | 0 | 0 | 0\n0101 | 0 | 0 | 0 | 0     1101 | 0 | 0 | 0 | 0\n0110 | 0 | 0 | 1 | 1     1110 | 0 | 0 | 0 | 0\n0111 | 0 | 0 | 0 | 0     1111 | 0 | 0 | 0 | 0\n\nResult: F = Σm(0, 2, 3, 6, 8, 10, 11)", "note": "", "sources": ["att.l9mWFOGFDWQBVvPF7HfM6HGQHSITs3OJHxhjqlVtXLA.jpeg", "att.osDfgY40jaBjyq9NW1uVDZFsVuPviiK0zRRZ79_nT00.jpeg"]}, {"id": "TT-06", "topic_id": "truth-tables", "subtopic": "4-Variable Nested Complement Truth Table", "complexity": 4, "complexity_reason": "16-row, 4-variable truth table for a compound expression with nested complements (NOR/NAND terms) and multiple intermediate signals.", "title": "Construct the 4-variable truth table for X = [(A' + B') + (BC)']' + (BC)'D", "statement": "Construct the complete 16-row truth table for the 4-variable compound Boolean expression X = [(A' + B') + (BC)']' + ((BC)'D) using intermediate columns A' + B', (BC)', (BC)'D, and M = [(A' + B') + (BC)']'.", "given": "X = [(A' + B') + (BC)']' + ((BC)'D)  |  Weights: A(8), B(4), C(2), D(1)", "solution": "Note: M = [(A' + B') + (BC)']' = AB·BC = ABC.\nRows 0–15 (ABCD | A'+B' | (BC)' | (BC)'D | M | X):\n0000 | 1 | 1 | 0 | 0 | 0     1000 | 1 | 1 | 0 | 0 | 0\n0001 | 1 | 1 | 1 | 0 | 1     1001 | 1 | 1 | 1 | 0 | 1\n0010 | 1 | 1 | 0 | 0 | 0     1010 | 1 | 1 | 0 | 0 | 0\n0011 | 1 | 1 | 1 | 0 | 1     1011 | 1 | 1 | 1 | 0 | 1\n0100 | 1 | 1 | 0 | 0 | 0     1100 | 0 | 1 | 0 | 0 | 0\n0101 | 1 | 1 | 1 | 0 | 1     1101 | 0 | 1 | 1 | 0 | 1\n0110 | 1 | 0 | 0 | 0 | 0     1110 | 0 | 0 | 0 | 1 | 1\n0111 | 1 | 0 | 0 | 0 | 0     1111 | 0 | 0 | 0 | 1 | 1\n\nResult: M = Σm(14, 15);  X = Σm(1, 3, 5, 9, 11, 13, 14, 15)", "note": "Problem statement appears as Exercise #2 in att.ORQiidIwmivElNZ6h2kEF5x--MkKKXRT7Ud1jru2N8U.jpeg; its completed 16-row whiteboard table is in att.4XZUOAV7UZ3B1iBgWqWUSYTdhEw-EsSwqr--R_YtlR0.jpeg.", "sources": ["att.ORQiidIwmivElNZ6h2kEF5x--MkKKXRT7Ud1jru2N8U.jpeg", "att.4XZUOAV7UZ3B1iBgWqWUSYTdhEw-EsSwqr--R_YtlR0.jpeg"]}, {"id": "BA-01", "topic_id": "boolean-algebra", "subtopic": "Complement & Null Laws", "complexity": 1, "complexity_reason": "Single-step 2-variable simplification applying associativity, complement law (A·A' = 0), and null law.", "title": "Simplify F = A(A'B)", "statement": "Simplify the Boolean expression F = A(A'B) using Boolean algebra laws.", "given": "F = A(A'B)", "solution": "F = A(A'B) = (AA')B = (0)B = 0", "note": "", "sources": ["att.Al06yh-NwvU4OLY-6bXPD-gJMNW8FAeajdI1t3NWwfU.jpeg"]}, {"id": "BA-02", "topic_id": "boolean-algebra", "subtopic": "Factoring & Dominance Law", "complexity": 1, "complexity_reason": "Direct one-step factoring using distributive, dominance (C + 1 = 1), and identity laws.", "title": "Simplify F = ABCD + ABD", "statement": "Simplify the Boolean expression F = ABCD + ABD using Boolean algebra laws.", "given": "F = ABCD + ABD", "solution": "F = ABCD + ABD = ABD(C + 1) = ABD(1) = ABD", "note": "", "sources": ["att.Al06yh-NwvU4OLY-6bXPD-gJMNW8FAeajdI1t3NWwfU.jpeg"]}, {"id": "BA-03", "topic_id": "boolean-algebra", "subtopic": "Combining Theorem (Complement Law)", "complexity": 1, "complexity_reason": "Single-step factoring applying the complement law (x + x' = 1) and identity law.", "title": "Simplify A = wxyz + wx'yz", "statement": "Simplify the Boolean expression A = wxyz + wx'yz using Boolean algebra laws.", "given": "A = wxyz + wx'yz", "solution": "A = wxyz + wx'yz = wyz(x + x') = wyz(1) = wyz", "note": "", "sources": ["att.Al06yh-NwvU4OLY-6bXPD-gJMNW8FAeajdI1t3NWwfU.jpeg"]}, {"id": "BA-04", "topic_id": "boolean-algebra", "subtopic": "Term Adjacency & Complement Law", "complexity": 1, "complexity_reason": "Basic single-step factoring using X + X' = 1 and comparing Hamming distance between minterms.", "title": "Combine ab'c + a'b'c and check adjacency of a'b'c with abc'", "statement": "Simplify ab'c + a'b'c using Boolean complement laws (XX' = 0, X + X' = 1), and determine whether a'b'c can be combined directly with abc'.", "given": "Expression: ab'c + a'b'c  |  Compare: a'b'c vs. abc'", "solution": "ab'c + a'b'c = b'c(a + a') = b'c(1) = b'c  (differ in 1 variable: a vs. a').\na'b'c and abc' differ in all 3 literals (a'/a, b'/b, c/c'), so they are non-adjacent and cannot be combined directly.", "note": "", "sources": ["att.R9HKy-JkWRe044vSfV2l1MgCN0QP_E9zTiZolfy0Av8.jpeg"]}, {"id": "BA-05", "topic_id": "boolean-algebra", "subtopic": "Absorption Law Proof", "complexity": 2, "complexity_reason": "2-variable simplification deriving the absorption identity via distributive, idempotent, and dominance laws.", "title": "Simplify S = g(g + h)", "statement": "Simplify the Boolean expression S = g(g + h) using Boolean algebra laws.", "given": "S = g(g + h)", "solution": "S = g(g + h) = gg + gh = g + gh = g(1 + h) = g(1) = g", "note": "", "sources": ["att.Al06yh-NwvU4OLY-6bXPD-gJMNW8FAeajdI1t3NWwfU.jpeg"]}, {"id": "BA-06", "topic_id": "boolean-algebra", "subtopic": "POS Expansion to SOP (XOR)", "complexity": 2, "complexity_reason": "2-variable FOIL expansion cancelling zero terms via the complement law (QQ' = 0, RR' = 0).", "title": "Simplify (b): y = (Q + R)(Q' + R')", "statement": "Use the Boolean theorems to simplify the expression: y = (Q + R)(Q' + R').", "given": "y = (Q + R)(Q' + R')", "solution": "y = QQ' + QR' + RQ' + RR' = 0 + QR' + Q'R + 0 = QR' + Q'R  (= Q ⊕ R)", "note": "", "sources": ["att.XE9PwoMTHfnf8ZCvpL3kMJYveKURpHEJfDFUL4LnHYI.jpeg", "att.gYBgpDFVNKtjbzw9nLr5TIM66NXSk-lPG5qWHEl3MvY.jpeg"]}, {"id": "BA-07", "topic_id": "boolean-algebra", "subtopic": "Factoring & Redundancy Law", "complexity": 3, "complexity_reason": "3-variable simplification requiring factoring followed by the redundancy/absorption identity (A' + AB = A' + B).", "title": "Simplify (a): x = ABC + A'C", "statement": "Use the Boolean theorems to simplify the expression: x = ABC + A'C.", "given": "x = ABC + A'C", "solution": "x = ABC + A'C = C(AB + A') = C(A' + B) = A'C + BC", "note": "", "sources": ["att.XE9PwoMTHfnf8ZCvpL3kMJYveKURpHEJfDFUL4LnHYI.jpeg", "att.gYBgpDFVNKtjbzw9nLr5TIM66NXSk-lPG5qWHEl3MvY.jpeg"]}, {"id": "BA-08", "topic_id": "boolean-algebra", "subtopic": "Complement & Redundancy Laws", "complexity": 3, "complexity_reason": "3-variable simplification combining factoring, complement law (B + B' = 1), and redundancy (A' + AC = A' + C).", "title": "Simplify (c): w = ABC + AB'C + A'", "statement": "Use the Boolean theorems to simplify the expression: w = ABC + AB'C + A'.", "given": "w = ABC + AB'C + A'", "solution": "w = AC(B + B') + A' = AC(1) + A' = AC + A' = A' + C", "note": "", "sources": ["att.XE9PwoMTHfnf8ZCvpL3kMJYveKURpHEJfDFUL4LnHYI.jpeg", "att.gYBgpDFVNKtjbzw9nLr5TIM66NXSk-lPG5qWHEl3MvY.jpeg"]}, {"id": "BA-09", "topic_id": "boolean-algebra", "subtopic": "3-Variable Algebraic Simplification", "complexity": 3, "complexity_reason": "3-variable expression using factoring, complement law (b' + b = 1), and absorption (c' + bc = c' + b).", "title": "Problem 6: Simplify W = a'b'c' + a'bc' + a'bc", "statement": "Simplify the Boolean expression W = a'b'c' + a'bc' + a'bc using Boolean algebra theorems.", "given": "W = a'b'c' + a'bc' + a'bc", "solution": "W = a'c'(b' + b) + a'bc = a'c'(1) + a'bc = a'c' + a'bc = a'(c' + bc) = a'(c' + b) = a'c' + a'b", "note": "", "sources": ["att.tsN8ojd6omuQ5QcsCvYsfouhk3eaF_b3ZSpUUmKuMoA.jpeg"]}, {"id": "BA-10", "topic_id": "boolean-algebra", "subtopic": "3-Variable Algebraic Simplification", "complexity": 3, "complexity_reason": "3-variable 4-term expression combining factoring, dominance (1 + R + R' = 1), and redundancy (P + P'R = P + R).", "title": "Problem 5: Simplify X = PQ + PQR + PQR' + P'QR", "statement": "Simplify the Boolean expression X = PQ + PQR + PQR' + P'QR using Boolean algebra theorems.", "given": "X = PQ + PQR + PQR' + P'QR", "solution": "X = PQ(1 + R + R') + P'QR = PQ(1) + P'QR = PQ + P'QR = Q(P + P'R) = Q(P + R) = PQ + QR", "note": "", "sources": ["att.tsN8ojd6omuQ5QcsCvYsfouhk3eaF_b3ZSpUUmKuMoA.jpeg"]}, {"id": "BA-11", "topic_id": "boolean-algebra", "subtopic": "De Morgan's Law & Idempotent Laws", "complexity": 3, "complexity_reason": "3-variable expression applying De Morgan's theorem on both factors, distributing, and collapsing via idempotent laws.", "title": "Simplify (d): q = (RST)'(R + S + T)'", "statement": "Use the Boolean theorems to simplify the expression: q = (RST)'(R + S + T)'.", "given": "q = (RST)'(R + S + T)'", "solution": "q = (R' + S' + T')(R'S'T')\n  = R'R'S'T' + R'S'S'T' + R'S'T'T'\n  = R'S'T' + R'S'T' + R'S'T'\n  = R'S'T'", "note": "", "sources": ["att.XE9PwoMTHfnf8ZCvpL3kMJYveKURpHEJfDFUL4LnHYI.jpeg", "att.Uang6YWBXvto5Qt-I7MnZZSNFMIN5aqc71cKDAcegDc.jpeg"]}, {"id": "BA-12", "topic_id": "boolean-algebra", "subtopic": "Nested De Morgan's & Involution", "complexity": 3, "complexity_reason": "2-variable simplification applying De Morgan's Law twice and cancelling double negations to obtain SOP (XOR) form.", "title": "Problem 7: Simplify C = ((x + y')(x' + y))'", "statement": "Simplify the Boolean expression C = ((x + y')(x' + y))' using De Morgan's Laws and Boolean algebra theorems.", "given": "C = ((x + y')(x' + y))'", "solution": "C = (x + y')' + (x' + y)' = x'·y'' + x''·y' = x'y + xy'", "note": "", "sources": ["att.tsN8ojd6omuQ5QcsCvYsfouhk3eaF_b3ZSpUUmKuMoA.jpeg"]}, {"id": "BA-13", "topic_id": "boolean-algebra", "subtopic": "Multi-Level Nested De Morgan's Laws", "complexity": 4, "complexity_reason": "4-variable deeply nested complement expression requiring successive De Morgan's expansions, double-negation cancellation, and distribution.", "title": "Problem 8: Simplify U = (((w'x)'y)'z)'", "statement": "Simplify the Boolean expression U = (((w'x)'y)'z)' using De Morgan's theorem and Boolean algebra laws.", "given": "U = (((w'x)'y)'z)'", "solution": "U = (((w'x)'y)')' + z'\n  = (w'x)'y + z'\n  = (w'' + x')y + z'\n  = (w + x')y + z'\n  = wy + x'y + z'", "note": "", "sources": ["att.MaYFEfzfRbpNuRj1ufd2jyHMrKPV2tNEdAcC1yqZujo.jpeg"]}, {"id": "BA-14", "topic_id": "boolean-algebra", "subtopic": "Multi-Step 5-Term SOP Simplification", "complexity": 4, "complexity_reason": "3-variable, 5-minterm SOP simplification requiring strategic grouping, complement law, and absorption.", "title": "Simplify (e): x = A'B'C' + A'BC + ABC + AB'C' + AB'C", "statement": "Use the Boolean theorems to simplify the expression: x = A'B'C' + A'BC + ABC + AB'C' + AB'C.", "given": "x = A'B'C' + A'BC + ABC + AB'C' + AB'C", "solution": "x = BC(A' + A) + B'(A'C' + AC' + AC)\n  = BC + B'[A'C' + A(C' + C)]\n  = BC + B'[A'C' + A]\n  = BC + B'(A + C')\n  = BC + AB' + B'C'", "note": "", "sources": ["att.XE9PwoMTHfnf8ZCvpL3kMJYveKURpHEJfDFUL4LnHYI.jpeg", "att.gYBgpDFVNKtjbzw9nLr5TIM66NXSk-lPG5qWHEl3MvY.jpeg"]}, {"id": "BA-15", "topic_id": "boolean-algebra", "subtopic": "POS Expansion + De Morgan's Law", "complexity": 5, "complexity_reason": "Multi-step 3-variable simplification combining FOIL expansion, De Morgan's Law on a 3-literal complemented sum, factoring, and redundancy.", "title": "Simplify (f): z = (B + C')(B' + C) + (A' + B + C')'", "statement": "Use the Boolean theorems to simplify the expression: z = (B + C')(B' + C) + (A' + B + C')'.", "given": "z = (B + C')(B' + C) + (A' + B + C')'", "solution": "z = BB' + BC + C'B' + C'C + (A' + B + C')'\n  = BC + B'C' + AB'C\n  = BC + B'(C' + AC)\n  = BC + B'(C' + A)\n  = BC + B'C' + AB'", "note": "", "sources": ["att.XE9PwoMTHfnf8ZCvpL3kMJYveKURpHEJfDFUL4LnHYI.jpeg", "att.gYBgpDFVNKtjbzw9nLr5TIM66NXSk-lPG5qWHEl3MvY.jpeg"]}, {"id": "BA-16", "topic_id": "boolean-algebra", "subtopic": "4-Variable 5-Term Simplification with De Morgan's Law", "complexity": 5, "complexity_reason": "4-variable, 5-term expression combining De Morgan's theorem, multi-term factoring, and repeated absorption.", "title": "Simplify (g): y = (C + D)' + A'CD' + AB'C' + A'B'CD + ACD'", "statement": "Use the Boolean theorems to simplify the expression: y = (C + D)' + A'CD' + AB'C' + A'B'CD + ACD'.", "given": "y = (C + D)' + A'CD' + AB'C' + A'B'CD + ACD'", "solution": "Partial whiteboard work shown:\n  y = C'D' + A'CD' + AB'C' + A'B'CD + ACD'\n  = [D'(C' + A'C)] + AB'C' + A'B'CD + ACD'  (board continues with a typo dropping the prime on A' in line 4)\n\nClean algebraic completion (verified):\n  Group A'CD' + ACD' = CD'(A' + A) = CD'.\n  Then C'D' + CD' = D'(C' + C) = D'.\n  So y = D' + AB'C' + A'B'CD = D' + B'(AC' + A'CD) = D' + B'(AC' + A'C)  [since D' + A'B'CD = D' + A'B'C]\n     = D' + AB'C' + A'B'C  (equivalently D' + B'(A ⊕ C)).", "note": "Board erratum noted on att.ptvSM_grM2rnsEErjr6kiUsjrrA_Z0euxHTM0FmNULA.jpeg: line 4 drops the overbar on A' (writing A instead of A') and stops partway through line 6. Both the partial board work and the verified completion are included above.", "sources": ["att.XE9PwoMTHfnf8ZCvpL3kMJYveKURpHEJfDFUL4LnHYI.jpeg", "att.ptvSM_grM2rnsEErjr6kiUsjrrA_Z0euxHTM0FmNULA.jpeg"]}, {"id": "BA-17", "topic_id": "boolean-algebra", "subtopic": "4-Variable Simplification with Nested De Morgan's Law", "complexity": 5, "complexity_reason": "4-variable expression with complemented product term requiring De Morgan's Law, distribution, and multi-term reduction.", "title": "Simplify (h): x = AB(C'D)' + A'BD + B'C'D'", "statement": "Use the Boolean theorems to simplify the expression: x = AB(C'D)' + A'BD + B'C'D'.", "given": "x = AB(C'D)' + A'BD + B'C'D'", "solution": "Partial whiteboard work shown:\n  x = AB(C + D') + A'BD + B'C'D'\n    = ABC + ABD' + A'BD + B'C'D'  (simplification not completed on board)\n\nVerified minimal SOP forms (4 terms, 12 literals):\n  x = ABC + ABD' + A'BD + B'C'D'\n  Alt: x = BCD + ABD' + A'BD + B'C'D'", "note": "Only the expansion step is shown on att.ptvSM_grM2rnsEErjr6kiUsjrrA_Z0euxHTM0FmNULA.jpeg.", "sources": ["att.XE9PwoMTHfnf8ZCvpL3kMJYveKURpHEJfDFUL4LnHYI.jpeg", "att.ptvSM_grM2rnsEErjr6kiUsjrrA_Z0euxHTM0FmNULA.jpeg"]}, {"id": "CF-01", "topic_id": "canonical-forms", "subtopic": "Product Term to Binary Minterms", "complexity": 2, "complexity_reason": "Single 4-variable product term with one missing variable expanded via X-mask into two binary minterm indices.", "title": "Find the binary minterms represented by product term acd", "statement": "Find the binary minterms represented by the product term acd in a 4-variable Boolean function of (a, b, c, d).", "given": "Product term: acd  (4 variables: a, b, c, d; missing variable b)", "solution": "acd -> 1X11 -> branches into 1011 (decimal 11, m11) and 1111 (decimal 15, m15).", "note": "", "sources": ["att.R9HKy-JkWRe044vSfV2l1MgCN0QP_E9zTiZolfy0Av8.jpeg"]}, {"id": "CF-02", "topic_id": "canonical-forms", "subtopic": "Single-Term Canonical SOP Setup", "complexity": 2, "complexity_reason": "Basic algebraic expansion of one 2-literal term into 4-variable canonical SOP by inserting (c + c')(d + d').", "title": "Expand f(a, b, c, d) = a'b into canonical SOP form", "statement": "Expand the 4-variable Boolean function f(a, b, c, d) = a'b into canonical sum-of-minterms (SOP) form by introducing the missing variables.", "given": "f(a, b, c, d) = a'b", "solution": "Board setup: f(a, b, c, d) = a'b(c + c')(d + d')\nFull expansion: a'bc'd' + a'bc'd + a'bcd' + a'bcd = Σm(4, 5, 6, 7).", "note": "Board shows the setup step a'b(c + c')(d + d').", "sources": ["att.R9HKy-JkWRe044vSfV2l1MgCN0QP_E9zTiZolfy0Av8.jpeg"]}, {"id": "CF-03", "topic_id": "canonical-forms", "subtopic": "3-Variable Canonical Forms & Complement Duality", "complexity": 3, "complexity_reason": "3-variable truth table conversion into all four canonical index forms (Σm and ∏M for both X and X').", "title": "Write canonical Σm and ∏M forms for X(a, b, c) and its complement X'", "statement": "Given the 3-variable truth table for X(a, b, c) and its complement X'(a, b, c), write both X and X' in canonical sum-of-minterms (Σm) and product-of-maxterms (∏M) forms.", "given": "Truth table (abc -> X, X'): 000->0,1 | 001->1,0 | 010->0,1 | 011->0,1 | 100->1,0 | 101->1,0 | 110->1,0 | 111->0,1", "solution": "X(a, b, c)  = Σm(1, 4, 5, 6) = ∏M(0, 2, 3, 7)\nX'(a, b, c) = Σm(0, 2, 3, 7) = ∏M(1, 4, 5, 6)", "note": "", "sources": ["att.CB3ge8DT6Eo9v59qjsgmLg1wPkFKY16PKQ0CTBWB-bY.jpeg"]}, {"id": "CF-04", "topic_id": "canonical-forms", "subtopic": "3-Variable SOP to Truth Table & Canonical Forms", "complexity": 3, "complexity_reason": "Converting a standard 3-variable SOP expression to binary patterns, truth table, and canonical Σm/∏M for F and F'.", "title": "Convert F(a, b, c) = abc' + b' to truth table and canonical forms (F and F')", "statement": "Construct the truth table for F(a, b, c) = abc' + b' and express both F(a, b, c) and its complement F'(a, b, c) in canonical sum-of-minterms (Σm) and product-of-maxterms (∏M) forms.", "given": "F(a, b, c) = abc' + b'  (abc' = 110;  b' = X0X -> 000, 001, 100, 101)", "solution": "Truth table (abc -> F): 000->1, 001->1, 010->0, 011->0, 100->1, 101->1, 110->1, 111->0\n\nF(a, b, c)  = Σm(0, 1, 4, 5, 6) = ∏M(2, 3, 7)\nF'(a, b, c) = Σm(2, 3, 7)       = ∏M(0, 1, 4, 5, 6)", "note": "", "sources": ["att.SLeAG4xJkp5vB53BgaYVsAQ_Gcdc3jMUffUmJ3b057U.jpeg"]}, {"id": "CF-05", "topic_id": "canonical-forms", "subtopic": "4-Variable Truth Table to Canonical Σm & ∏M", "complexity": 3, "complexity_reason": "16-row 4-variable truth table enumeration of 10 minterms and conversion between canonical Σm and ∏M forms.", "title": "Convert 4-variable truth table for f(a, b, c, d) into canonical Σm and ∏M forms", "statement": "Given the 16-row 4-variable truth table for f(a, b, c, d) (with output f = 1 at 10 rows), enumerate the minterms and express f in canonical sum-of-minterms (Σm) and product-of-maxterms (∏M) forms.", "given": "f(a, b, c, d) = 1 at rows 1, 2, 3, 5, 6, 7, 10, 11, 14, 15;  f = 0 at rows 0, 4, 8, 9, 12, 13.", "solution": "Canonical Sum of Minterms:  f(a, b, c, d) = Σm(1, 2, 3, 5, 6, 7, 10, 11, 14, 15)\nCanonical Product of Maxterms: f(a, b, c, d) = ∏M(0, 4, 8, 9, 12, 13)", "note": "Captured across 5 whiteboard photos showing the truth table, minterm list, and canonical conversion.", "sources": ["att.Bjgj9Pmiftn9YAhqAKrZ4IJuM3GTK0OsfhI2jQWBbXA.jpeg", "att.jQXM480XSRK3Q41kvqk3AErQCdDJhMDYu9Mu-vjANSU.jpeg", "att.Qaa1UH5SiRTJ5uCruBSxn_aBQAvVJbcyv7gW2yMQIKw.jpeg", "att.vp-qg143WWsVLUekEhPDNWWgnD0xgyX__dPt2N0_RZc.jpeg", "att.YB9TvedjIIvqZ9j-AC6Xk2eMZBGGA1V6XAioHvlp4jA.jpeg"]}, {"id": "CF-06", "topic_id": "canonical-forms", "subtopic": "Circuit to Truth Table & Canonical SOP/POS", "complexity": 4, "complexity_reason": "3-variable, 4-gate combinational circuit analysis followed by truth table construction and both canonical forms.", "title": "Example 3: Express the 4-gate logic circuit X = A + (A + B)(BC) in canonical form", "statement": "Express the given 3-input, 4-gate logic circuit in its canonical SOP (sum of minterms) and canonical POS (product of maxterms) forms.", "given": "Inputs A, B, C -> OR(A, B) = A + B; AND(B, C) = BC; AND(A + B, BC) = (A + B)(BC); final OR(A, (A + B)(BC)) -> X = A + (A + B)(BC).", "solution": "Truth table (A B C -> X):\n000->0, 001->0, 010->0, 011->1, 100->1, 101->1, 110->1, 111->1\n\nCanonical SOP: X(A, B, C) = Σm(3, 4, 5, 6, 7)\nCanonical POS: X(A, B, C) = ∏M(0, 1, 2)", "note": "", "sources": ["att.ruD_Q46EzSYWkP1dDPUyMqSb2NjDNwX_AbCQrXM2HGk.jpeg"]}, {"id": "CF-07", "topic_id": "canonical-forms", "subtopic": "Algebraic Minterm Expansion (4 Variables)", "complexity": 4, "complexity_reason": "4-variable algebraic distribution, inserting missing variable pairs (x + x'), and removing duplicate minterms.", "title": "Example 1: Find the minterm expansion of f(a, b, c, d) = a'(b' + d) + acd'", "statement": "Find the canonical minterm expansion (canonical SOP) of f(a, b, c, d) = a'(b' + d) + acd' (equivalently f = a'b' + a'd + acd').", "given": "f(a, b, c, d) = a'(b' + d) + acd' = a'b' + a'd + acd'", "solution": "Step 1 (Insert missing variables):\n  f = a'b'(c + c')(d + d') + a'd(b + b')(c + c') + acd'(b + b')\n\nStep 2 (Distribute & eliminate duplicates a'b'c'd and a'b'cd):\n  f = a'b'c'd' + a'b'c'd + a'b'cd' + a'b'cd + a'bc'd + a'bcd + abcd' + ab'cd'\n    = Σm(0, 1, 2, 3, 5, 7, 10, 14)", "note": "", "sources": ["att.hpBECgontTHSCoEF2ps8W5UmwsbfkUINSxfMVen00Pc.jpeg", "att.wXTnlzjFuOSRJdYKyRtbTfGDdFHdeAJBU08qLODp6Xg.jpeg"]}, {"id": "CF-08", "topic_id": "canonical-forms", "subtopic": "4-Variable Non-Canonical POS to Canonical Σm & ∏M", "complexity": 4, "complexity_reason": "Expanding a 4-variable non-canonical POS expression with missing literals via maxterm binary masks into canonical ∏M, Σm, and complement F'.", "title": "Convert POS F(a,b,c,d) = (a+b+d)(a'+c)(a'+b'+c')(a+b+c'+d') to canonical Σm & ∏M", "statement": "Express the 4-variable POS Boolean function F(a, b, c, d) = (a + b + d)(a' + c)(a' + b' + c')(a + b + c' + d') in canonical sum-of-minterms (Σm) and product-of-maxterms (∏M) forms, and relate them to the complement F'.", "given": "F(a, b, c, d) = (a + b + d)(a' + c)(a' + b' + c')(a + b + c' + d')", "solution": "Maxterm binary patterns (0 = unprimed, 1 = primed, X = missing):\n  (a + b + d)         -> 00X0 -> M(0, 2)\n  (a' + c)            -> 1X0X -> M(8, 9, 12, 13)\n  (a' + b' + c')      -> 111X -> M(14, 15)\n  (a + b + c' + d')   -> 0011 -> M(3)\n\nResult:\n  F(a, b, c, d) = ∏M(0, 2, 3, 8, 9, 12, 13, 14, 15)  <=>  F' = Σm(0, 2, 3, 8, 9, 12, 13, 14, 15)\n  F(a, b, c, d) = Σm(1, 4, 5, 6, 7, 10, 11)          <=>  F' = ∏M(1, 4, 5, 6, 7, 10, 11)", "note": "", "sources": ["att.Yoar2KalXZQkEctnU46zcurp2DCJz6lcTJTnzAMu5sI.jpeg"]}, {"id": "CF-09", "topic_id": "canonical-forms", "subtopic": "Full 4-Variable Algebraic Expansion to Canonical SOP & POS", "complexity": 4, "complexity_reason": "Expanding a 5-term 4-variable factored expression into all 10 unique minterms (removing 4 duplicates) and deriving the 6-factor canonical POS.", "title": "Expand f(a, b, c, d) = a'(c + d) + b'c(a + d') + abc to Canonical SOP and Canonical POS", "statement": "Expand the 4-variable Boolean function f(a, b, c, d) = a'(c + d) + b'c(a + d') + abc algebraically into both its canonical Sum of Products (SOP) and canonical Product of Sums (POS) forms.", "given": "f(a, b, c, d) = a'(c + d) + b'c(a + d') + abc", "solution": "Step 1 (Distribute): f = a'c + a'd + ab'c + b'cd' + abc\n  Binary shorthands: 0X1X, 0XX1, 101X, X010, 111X\n\nStep 2 (Expand missing variables & remove duplicates a'b'cd, a'bcd, a'b'cd', ab'cd'):\n  Canonical SOP:\n  f = a'b'cd' (0010) + a'b'cd (0011) + a'bcd' (0110) + a'bcd (0111)\n    + a'b'c'd (0001) + a'bc'd (0101) + ab'cd' (1010) + ab'cd (1011)\n    + abcd' (1110) + abcd (1111)\n    = Σm(1, 2, 3, 5, 6, 7, 10, 11, 14, 15)\n\nStep 3 (Canonical POS from the 6 zero rows 0, 4, 8, 9, 12, 13):\n  f = (a+b+c+d)(a+b'+c+d)(a'+b+c+d)(a'+b+c+d')(a'+b'+c+d)(a'+b'+c+d')\n    = ∏M(0, 4, 8, 9, 12, 13)", "note": "", "sources": ["att.6fueuAOGZcem3nyhjcneqMDiV4OXY-lYyFqfjtFFwPM.jpeg", "att.BryFLTcauwph0OVT8Bly2pSNpPo8Sw2BbhzppA7YTrE.jpeg", "att.l3A6GvgbIvhgoLuzG-d2CsdplDNS_5MIx4_hNpevD3E.jpeg"]}, {"id": "LC-01", "topic_id": "combinational-circuits", "subtopic": "3-Variable SOP Gate Implementation", "complexity": 3, "complexity_reason": "Direct two-level NOT–AND–OR gate synthesis of a 3-variable, 4-term SOP expression.", "title": "Implement F = A'C + A'B + AB'C + BC as a combinational logic circuit", "statement": "Implement the 3-variable Boolean expression F = A'C + A'B + AB'C + BC as a combinational logic circuit using NOT, AND, and OR gates, and evaluate F for inputs A = 0, B = 0, C = 0.", "given": "F = A'C + A'B + AB'C + BC  |  Simulated input: A = 0, B = 0, C = 0", "solution": "Gate architecture (DRS / CheerpJ logic simulator):\n• 2 NOT gates produce A' and B'.\n• 4 AND gates compute: (1) A'C (2-input), (2) A'B (2-input), (3) AB'C (3-input), (4) BC (2-input).\n• 1 4-input OR gate combines all four product terms to output F.\n• At A = 0, B = 0, C = 0: A' = 1, B' = 1, all AND outputs = 0 -> F = 0.", "note": "", "sources": ["att.Gbf_X0S_VmYyMTAB7qACk20vq0pESw5olx_iSfm9q9c.jpeg"]}, {"id": "LC-02", "topic_id": "combinational-circuits", "subtopic": "4-Variable SOP Gate Implementation & Simulation", "complexity": 4, "complexity_reason": "Two-level NOT–AND–OR implementation of a 4-variable SOP expression in Logisim with live input-state verification.", "title": "Implement and simulate F = B'D' + B'C + A'CD' in Logisim", "statement": "Draw and simulate the two-level combinational logic circuit for the 4-variable Boolean function F = B'D' + B'C + A'CD' using NOT, AND, and OR gates, and evaluate F when A = 1, B = 1, C = 1, D = 1.", "given": "F = B'D' + B'C + A'CD'  |  Simulated input: A = 1, B = 1, C = 1, D = 1", "solution": "Gate architecture (logisim.app):\n• 3 NOT gates generate A', B', and D'.\n• 3 AND gates compute: B'D' (2-input), B'C (2-input), and A'CD' (3-input).\n• 1 3-input OR gate combines the three AND outputs to produce F.\n• At A=1, B=1, C=1, D=1: A'=0, B'=0, C=1, D'=0 -> all AND gates = 0 -> output LED F = 0.", "note": "", "sources": ["att.tXkzof7fwuq8LsnJsEnMWsjJt9GTk_zH-KjCDcCwxes.jpeg"]}, {"id": "LC-03", "topic_id": "combinational-circuits", "subtopic": "Multi-Level 4-Variable Circuit Analysis & Simplification", "complexity": 5, "complexity_reason": "Deriving an expression from a 4-variable multi-level AND/NAND/NOR/OR schematic and simplifying it via De Morgan's Law, factoring, and dominance.", "title": "Derive and simplify the logic expression for Circuit P (4 inputs: A, B, C, D)", "statement": "Obtain the logic expression of the right-hand multi-level logic circuit (output P) and use Boolean theorems to simplify the expression.", "given": "Inputs A, B, C, D:\n• AND(A, B) = AB;  NAND(B, C) = (BC)' -> AND(AB, (BC)') = AB(BC)'\n• NOT(B) = B';  NOR(C, B') = (B' + C)'\n• AND(A, D) = AD -> AND(AD, (B' + C)') = AD(B' + C)'\n• Final 3-input OR combines all three branches -> P = AB(BC)' + (B' + C)' + AD(B' + C)'", "solution": "Step 1: P = AB(BC)' + (B' + C)' + AD(B' + C)'\nStep 2 (De Morgan + factor (B' + C)'): P = AB(B' + C') + (B' + C')(1 + AD)\nStep 3 (1 + AD = 1 and (B' + C)' = BC'): P = ABB' + ABC' + BC'\nStep 4 (ABB' = 0): P = ABC' + BC' = BC'(A + 1) = BC'(1)\n\nFinal Simplified Expression: P = BC'", "note": "Circuit diagram is on slide att.qCv4Qz4roxuI5lsBnX5oCfXFr69RpzDSAOiD2hxC6nc.jpeg; full worked simplification is on whiteboard att.4NkWVh33Fbv0vUXJhCO_Gam51XDYTEPM7yRmbrj0b_g.jpeg.", "sources": ["att.qCv4Qz4roxuI5lsBnX5oCfXFr69RpzDSAOiD2hxC6nc.jpeg", "att.4NkWVh33Fbv0vUXJhCO_Gam51XDYTEPM7yRmbrj0b_g.jpeg"]}, {"id": "LC-04", "topic_id": "combinational-circuits", "subtopic": "Multi-Level Circuit with XNOR & NOR Gates", "complexity": 5, "complexity_reason": "Multi-level circuit analysis featuring XNOR and NOR gates followed by nested De Morgan's Law, XOR/XNOR expansion, and full 8-term cancellation.", "title": "Derive and simplify the logic expression for Circuit L (3 inputs: A, B, C)", "statement": "Obtain the logic expression of the left-hand multi-level logic circuit (output L) and use Boolean theorems to simplify the expression.", "given": "Inputs A, B, C:\n• NOT(B) = B', NOT(C) = C'\n• Top branch: AND(A, B') = AB' -> OR(AB', C') = AB' + C'\n• Middle branch: XNOR(A, B') = (A ⊕ B')'\n• Bottom branch: NOR(A, C') = (A + C')'\n• Final 3-input NOR combines all three branches -> L = [(AB' + C') + (A ⊕ B')' + (A + C')']'", "solution": "L = [(AB' + C') + (A ⊕ B')' + (A + C')']'\n  = (AB' + C')'(A ⊕ B')(A + C')\n  = (AB')' · C · (AB + A'B')(A + C')\n  = (A' + B)(C)(AB + A'B')(A + C')\n  = (A'C + BC)(AB + A'B')(A + C')\n  = (A'ABC + A'A'B'C + ABBC + A'B'BC)(A + C')\n  = A'AABC + A'A'AB'C + AABBC + AA'B'BC + A'ABCC' + A'A'B'CC' + ABBCC' + A'B'BCC'\n  (All terms except AABBC vanish via x·x' = 0)\n\nFinal Simplified Expression: L = ABC", "note": "Circuit diagram is on slide att.qCv4Qz4roxuI5lsBnX5oCfXFr69RpzDSAOiD2hxC6nc.jpeg; full worked derivation is on whiteboard att.qBgt9KwteJLXmfr3VH2MKmJszIiMkMpyimPtgRHTekM.jpeg.", "sources": ["att.qCv4Qz4roxuI5lsBnX5oCfXFr69RpzDSAOiD2hxC6nc.jpeg", "att.qBgt9KwteJLXmfr3VH2MKmJszIiMkMpyimPtgRHTekM.jpeg"]}, {"id": "KM-01", "topic_id": "karnaugh-maps", "subtopic": "4-Variable K-Map Minimum SOP (Multiple Minimal Covers)", "complexity": 5, "complexity_reason": "4-variable K-map with wrap-around grouping, four essential prime implicants, and two equally minimal SOP covers.", "title": "4-Var K-Map Min SOP: f(a, b, c, d) = Σm(0, 1, 3, 5, 6, 7, 11, 12, 14)", "statement": "Find the minimum sum-of-products (SOP) expression for the function: f(a, b, c, d) = Σm(0, 1, 3, 5, 6, 7, 11, 12, 14).", "given": "f(a, b, c, d) = Σm(0, 1, 3, 5, 6, 7, 11, 12, 14)", "solution": "Essential Prime Implicants (marked with * on K-map):\n  a'b'c' {0, 1},  a'd {1, 3, 5, 7},  b'cd {3, 11},  abd' {12, 14}\nRemaining minterm m6 can be covered by either bcd' {6, 14} or a'bc {6, 7}.\n\nMinimum SOP Solutions:\n  f = a'b'c' + a'd + b'cd + abd' + bcd'\n  Alt: f = a'b'c' + a'd + b'cd + abd' + a'bc", "note": "", "sources": ["att.Qtm2Dvi4Av4mkQNClvDiF44JH7YF2z3bSOTCOKdEbjQ.jpeg", "att.vyIyEQbv2lQIIlGMy-yYZWrL9C0397AK2ks1a8mS3yE.jpeg", "att.xZaRcEq3o1m9oNsNp1PdRTPvJ9kNjAyfp2FbrzIVuUQ.jpeg", "IMG_4532.heic"]}, {"id": "KM-02", "topic_id": "karnaugh-maps", "subtopic": "4-Variable K-Map Minimum SOP from Maxterms", "complexity": 5, "complexity_reason": "4-variable K-map starting from product-of-maxterms (∏M) notation and deriving the minimum SOP expression.", "title": "4-Var K-Map Min SOP from Maxterms: f(a, b, c, d) = ∏M(1, 9, 11, 12, 14)", "statement": "Find the minimum sum-of-products (SOP) expression for the function: f(a, b, c, d) = ∏M(1, 9, 11, 12, 14).", "given": "f(a, b, c, d) = ∏M(1, 9, 11, 12, 14)  [Equivalently Σm(0, 2, 3, 4, 5, 6, 7, 8, 10, 13, 15)]", "solution": "True solution for f(a,b,c,d) = ∏M(1, 9, 11, 12, 14):\n  Zeros at {1, 9, 11, 12, 14}; 1s at {0, 2, 3, 4, 5, 6, 7, 8, 10, 13, 15}.\n  K-map groupings of 1s: a'b {4,5,6,7}, bd {5,7,13,15}, b'd' {0,2,8,10}, a'c {2,3,6,7} ->\n  f = a'b + bd + b'd' + a'c  (4 terms, 8 literals).\n\nWhat appears on lecture slide att.cYOwVc... (Slide Erratum):\n  The slide prints the header f = ∏M(1, 9, 11, 12, 14), but mistakenly re-uses the K-map & solution for Σm(0, 1, 3, 5, 6, 7, 11, 12, 14):\n  f = a'b'c' + a'd + b'cd + abd' + bcd'  (Alt: ... + a'bc).", "note": "Slide erratum detected on att.cYOwVc-DpakO2Y6gOA4i3GSEfkEj4_U5Y8A_93oonZA.jpeg: the header specifies ∏M(1, 9, 11, 12, 14) while the plotted K-map underneath accidentally duplicates the previous example Σm(0, 1, 3, 5, 6, 7, 11, 12, 14). Both the mathematically correct answer and the slide's printed output are documented above.", "sources": ["att.cYOwVc-DpakO2Y6gOA4i3GSEfkEj4_U5Y8A_93oonZA.jpeg", "att.vyIyEQbv2lQIIlGMy-yYZWrL9C0397AK2ks1a8mS3yE.jpeg", "att.xZaRcEq3o1m9oNsNp1PdRTPvJ9kNjAyfp2FbrzIVuUQ.jpeg", "IMG_4532.heic"]}, {"id": "KM-03", "topic_id": "karnaugh-maps", "subtopic": "4-Variable K-Map Min SOP & Min POS (from SOP Expression)", "complexity": 6, "complexity_reason": "Plotting a 5-term non-canonical 4-variable SOP expression via X-masks and deriving both minimum SOP (1-groupings) and minimum POS (0-groupings) with wrap-around.", "title": "4-Var K-Map Min SOP & POS: F(A, B, C, D) = BD' + B'CD + ABC + ABC'D + B'D'", "statement": "Using a 4-variable Karnaugh map, find both the minimal Sum-of-Products (SOP) and minimal Product-of-Sums (POS) expressions for F(A, B, C, D) = BD' + B'CD + ABC + ABC'D + B'D'.", "given": "F(A, B, C, D) = BD' + B'CD + ABC + ABC'D + B'D'\nBitmasks: BD'=X1X0, B'CD=X011, ABC=111X, ABC'D=1101, B'D'=X0X0\nEquivalently: Σm(0, 2, 3, 4, 6, 8, 10, 11, 12, 13, 14, 15) = ∏M(1, 5, 7, 9)", "solution": "Minimum SOP (grouping 1s in blue):\n• Octet (CD = 00, 10 wrap-around): D'\n• Quad (row AB = 11): AB\n• Quad (rows AB = 00, 10 wrap-around, cols CD = 11, 10): B'C\n  => F_SOP = D' + AB + B'C\n\nMinimum POS (grouping 0s in red):\n• Pair (m5, m7 at AB=01, CD=01,11): (A + B' + D')\n• Wrap-around pair (m1, m9 at AB=00,10, CD=01): (B + C + D')\n  => F_POS = (A + B' + D')(B + C + D')", "note": "Whiteboard also includes a K-map group-size vs. literal-count reference table (1->4, 2->3, 4->2, 8->1, 16->0).", "sources": ["att.SAEupzLY6A2xSG14B6Rh-cTzsx5zOdGYiUfXgT5oplE.jpeg", "att.u1oBLm3dZIaFZBx2Gm4S1vIio4yULr8x82uRYEoyVzE.jpeg"]}, {"id": "KM-04", "topic_id": "karnaugh-maps", "subtopic": "4-Variable K-Map with Don't Cares (Min SOP & Min POS)", "complexity": 6, "complexity_reason": "4-variable K-map with 6 don't-care conditions requiring both minimum SOP and minimum POS derivations.", "title": "4-Var K-Map with Don't Cares: f(a, b, c, d) = Σm(3, 4, 11, 15) + Σd(5, 6, 7, 8, 9, 10)", "statement": "Determine the minimum sum of products (SOP) and minimum product of sums (POS) expressions for: f(a, b, c, d) = Σm(3, 4, 11, 15) + Σd(5, 6, 7, 8, 9, 10).", "given": "f(a, b, c, d) = Σm(3, 4, 11, 15) + Σd(5, 6, 7, 8, 9, 10)  |  Zeros at {0, 1, 2, 12, 13, 14}", "solution": "No worked solution slide appears in the folder for this variant (problem statement only on Examples slide).\n\nVerified K-map solution (for self-check):\n• Minimum SOP (grouping 1s + Xs): {4, 5, 6, 7} -> a'b;  {3, 7, 11, 15} -> cd\n  => f_SOP = a'b + cd\n• Minimum POS (grouping 0s {0, 1, 2, 12, 13, 14} + Xs): four essential quads\n  {0, 1, 8, 9} -> (b + c),  {0, 2, 8, 10} -> (b + d),  {8, 9, 12, 13} -> (a' + c),  {8, 10, 12, 14} -> (a' + d)\n  => f_POS = (a' + c)(a' + d)(b + c)(b + d)", "note": "Unsolved problem on the Examples slide; differs from KM-05 in having minterms (3, 4, 11, 15) instead of (3, 11, 12, 13, 14).", "sources": ["att.vyIyEQbv2lQIIlGMy-yYZWrL9C0397AK2ks1a8mS3yE.jpeg", "att.xZaRcEq3o1m9oNsNp1PdRTPvJ9kNjAyfp2FbrzIVuUQ.jpeg", "IMG_4532.heic"]}, {"id": "KM-05", "topic_id": "karnaugh-maps", "subtopic": "4-Variable K-Map with Don't Cares (Min SOP & Multiple Min POS)", "complexity": 6, "complexity_reason": "4-variable K-map with 6 don't-care conditions, listing all 9 SOP prime implicants and 6 POS prime implicants, yielding 3 alternative minimal POS solutions.", "title": "4-Var K-Map with Don't Cares: f(a, b, c, d) = Σm(3, 11, 12, 13, 14) + Σd(5, 6, 7, 8, 9, 10)", "statement": "Determine the minimum sum of products (SOP) and minimum product of sums (POS) expressions for the function: f(a, b, c, d) = Σm(3, 11, 12, 13, 14) + Σd(5, 6, 7, 8, 9, 10).", "given": "f(a, b, c, d) = Σm(3, 11, 12, 13, 14) + Σd(5, 6, 7, 8, 9, 10)  |  Zeros at {0, 1, 2, 4, 15}", "solution": "Minimum SOP (from SOP slide, right-hand K-map):\n  SOP PIs: B'CD, AC', AD', AB', BC'D, BCD', A'CD, A'BD, A'BC\n  f_SOP = B'CD + AC' + AD'\n\nMinimum POS (from POS slide, right-hand K-map):\n  POS PIs: (B' + C' + D'), (A + C), (A + D), (B + D), (B + C), (A + B')\n  f_POS = (B' + C' + D')(A + D)(B + C)\n     or = (B' + C' + D')(A + C)(B + D)\n     or = (B' + C' + D')(A + C)(A + D)", "note": "Slide erratum across both SOP and POS solution slides: the left and right K-maps/solutions are swapped relative to the function headings printed above them. Above, the mathematically matching right-hand K-map solutions are properly paired with Σm(3, 11, 12, 13, 14).", "sources": ["att.Knj5HZIz1x67kcANqzM-sjD3mRlpEDJ3JyDhtDCV-N4.jpeg", "att.dHSkctF0u-dl6Jj6VRjFNvEBMVL1NGiEXjP5zps66UM.jpeg", "att.eHFpSov8xMuY3NMKFQyHOWXPzqiJtbPxngs2mi05LX8.jpeg", "IMG_4556.heic", "IMG_4558.heic"]}, {"id": "KM-06", "topic_id": "karnaugh-maps", "subtopic": "4-Variable K-Map with Don't Cares (Multiple Min SOP & Min POS)", "complexity": 6, "complexity_reason": "4-variable K-map with 6 don't-care conditions, listing all SOP and POS prime implicants, yielding 3 alternative minimal SOP covers and a unique minimal POS.", "title": "4-Var K-Map with Don't Cares: f(a, b, c, d) = Σm(4, 11, 12, 13, 14) + Σd(5, 6, 7, 8, 9, 10)", "statement": "Determine the minimum sum of products (SOP) and minimum product of sums (POS) expressions for the function: f(a, b, c, d) = Σm(4, 11, 12, 13, 14) + Σd(5, 6, 7, 8, 9, 10).", "given": "f(a, b, c, d) = Σm(4, 11, 12, 13, 14) + Σd(5, 6, 7, 8, 9, 10)  |  Zeros at {0, 1, 2, 3, 15}", "solution": "Minimum SOP (from SOP slide, left-hand K-map):\n  SOP PIs: AB', BC', AD', BD', AC', A'B\n  f_SOP = AB' + BD' + AC'\n     or = AB' + BC' + BD'\n     or = AB' + BC' + AD'\n\nMinimum POS (from POS slide, left-hand K-map):\n  POS PIs: (B' + C' + D'), (A + B), (A + D'), (A + C')\n  f_POS = (B' + C' + D')(A + B)", "note": "Slide erratum across both SOP and POS solution slides: the left and right K-maps/solutions are swapped relative to the function headings printed above them. Above, the mathematically matching left-hand K-map solutions are properly paired with Σm(4, 11, 12, 13, 14).", "sources": ["att.vyIyEQbv2lQIIlGMy-yYZWrL9C0397AK2ks1a8mS3yE.jpeg", "att.xZaRcEq3o1m9oNsNp1PdRTPvJ9kNjAyfp2FbrzIVuUQ.jpeg", "IMG_4532.heic", "att.Knj5HZIz1x67kcANqzM-sjD3mRlpEDJ3JyDhtDCV-N4.jpeg", "att.dHSkctF0u-dl6Jj6VRjFNvEBMVL1NGiEXjP5zps66UM.jpeg", "att.eHFpSov8xMuY3NMKFQyHOWXPzqiJtbPxngs2mi05LX8.jpeg", "IMG_4556.heic", "IMG_4558.heic"]}, {"id": "KM-07", "topic_id": "karnaugh-maps", "subtopic": "5-Variable Diagonal-Split K-Map (2 Alternative Minimal Covers)", "complexity": 8, "complexity_reason": "5-variable overlay/diagonal-split K-map with 15 minterms requiring cross-plane (A=0/A=1) and wrap-around groupings, yielding two equivalent 5-term minimal SOP covers.", "title": "5-Var K-Map Min SOP: F(A, B, C, D, E) = Σm(0, 1, 4, 5, 13, 15, 20, 21, 22, 23, 24, 26, 28, 30, 31)", "statement": "Simplify the 5-variable Boolean expression F(A, B, C, D, E) = Σm(0, 1, 4, 5, 13, 15, 20, 21, 22, 23, 24, 26, 28, 30, 31) using a 5-variable diagonal-split Karnaugh map.", "given": "F(A, B, C, D, E) = Σm(0, 1, 4, 5, 13, 15, 20, 21, 22, 23, 24, 26, 28, 30, 31)  |  Axes: cols BC (00,01,11,10), rows DE (00,01,11,10), diagonal A=1 (upper-left) / A=0 (lower-right)", "solution": "Shared color-coded K-map groupings:\n• Blue  {0, 1, 4, 5}       -> A'B'D'\n• Green {24, 26, 28, 30}   -> ABE'\n• Black {22, 23, 30, 31}   -> ACD\n• Brown {13, 15}           -> A'BCE\n\nTwo equivalent choices for the 5th (red) quad covering {20, 21}:\n• Slide 1 (cross-plane red {4, 5, 20, 21} -> B'CD'):\n    F = A'B'D' + ABE' + ACD + A'BCE + B'CD'\n• Slide 2 (in-plane red {20, 21, 22, 23} -> AB'C):\n    F = A'B'D' + ABE' + ACD + A'BCE + AB'C", "note": "Two separate lecture slides demonstrate the two alternative minimal covers for {20, 21}: cross-plane quad B'CD' vs. in-plane quad AB'C.", "sources": ["att.2JvQIjS9KNCmQHqb887ouAPR6jxu5jGOp6gktr34JJ8.jpeg", "att.g3BkMcvnkY9jn7Va0_HZDJLqvd0qT4-YGT4zInSTXuI.jpeg"]}, {"id": "KM-08", "topic_id": "karnaugh-maps", "subtopic": "5-Variable K-Map Min SOP (3 Alternative Minimal Solutions)", "complexity": 8, "complexity_reason": "5-variable diagonal-split K-map with 13 minterms, 6 essential prime implicants, and a non-unique secondary cover yielding 3 distinct 8-term minimal SOP expressions.", "title": "5-Var K-Map Min SOP (All 3 Covers): F(a, b, c, d, e) = Σm(1, 3, 5, 8, 9, 15, 16, 20, 21, 23, 27, 28, 31)", "statement": "Determine all minimum sum-of-products (SOP) expressions for the 5-variable Boolean function: F(a, b, c, d, e) = Σm(1, 3, 5, 8, 9, 15, 16, 20, 21, 23, 27, 28, 31).", "given": "F(a, b, c, d, e) = Σm(1, 3, 5, 8, 9, 15, 16, 20, 21, 23, 27, 28, 31)", "solution": "6 Essential Prime Implicants (underlined on slide):\n  a'b'c'e {1,3},  a'bc'd' {8,9},  bcde {15,31},  ab'd'e' {16,20},  abde {27,31},  acd'e' {20,28}\n\nRemaining uncovered minterms {5, 21, 23} yield 3 equally minimal 8-term SOP expressions:\n  (1) f = a'b'c'e + a'bc'd' + bcde + ab'd'e' + abde + acd'e' + a'b'd'e + ab'ce\n  (2) f = a'b'c'e + a'bc'd' + bcde + ab'd'e' + abde + acd'e' + b'cd'e + ab'ce\n  (3) f = a'b'c'e + a'bc'd' + bcde + ab'd'e' + abde + acd'e' + b'cd'e + acde", "note": "", "sources": ["att.ArOHWAhwO4YRBNMMq-mrfztE6ipqYHdljIMk2n15Wys.jpeg", "att.Hvh9z_DB7N5Bo-dk-CDihrcbhnAgxDutFhU765uZHaA.jpeg", "att.92tHrFO-OXyu_aOwEync1_5GWsbprnTcj8hvUy0Q4ak.jpeg", "IMG_4533.heic", "IMG_4559.heic", "IMG_4560.heic"]}, {"id": "KM-09", "topic_id": "karnaugh-maps", "subtopic": "5-Variable K-Map Min POS with Don't Cares", "complexity": 9, "complexity_reason": "5-variable diagonal-split K-map with don't-care conditions requiring grouping 16 zeros and 4 Xs across both A-planes to obtain two alternative minimal POS expressions.", "title": "5-Var K-Map Min POS with Don't Cares: F(a,b,c,d,e) = Σm(1,5,12,13,14,16,17,21,23,24,30,31) + Σd(0,2,3,4)", "statement": "Determine the minimum product-of-sums (POS) expression(s) for the 5-variable Boolean function: F(A, B, C, D, E) = Σm(1, 5, 12, 13, 14, 16, 17, 21, 23, 24, 30, 31) + Σd(0, 2, 3, 4).", "given": "F(a, b, c, d, e) = Σm(1, 5, 12, 13, 14, 16, 17, 21, 23, 24, 30, 31) + Σd(0, 2, 3, 4)\n16 zeros at: {6, 7, 8, 9, 10, 11, 15, 18, 19, 20, 22, 25, 26, 27, 28, 29};  Xs at: {0, 2, 3, 4}", "solution": "Minimum POS Solutions (6 sum-terms each):\n  (1) F = (c + d')(a + d' + e')(b' + c + e')(a' + b' + c' + d)(a + c + e)(b + c' + e)\n  Alt: F = (c + d')(a + d' + e')(a + b' + c)(b' + c + e')(a' + b' + c' + d)(b + c' + e)", "note": "", "sources": ["att.ArOHWAhwO4YRBNMMq-mrfztE6ipqYHdljIMk2n15Wys.jpeg", "att.Hvh9z_DB7N5Bo-dk-CDihrcbhnAgxDutFhU765uZHaA.jpeg", "att.llrxmjHxChjkwoM-rFWNh8lPreuE-AgOQL_XJnd2liI.jpeg", "IMG_4533.heic", "IMG_4559.heic", "IMG_4561.heic"]}, {"id": "QM-01", "topic_id": "quine-mccluskey", "subtopic": "4-Variable Quine-McCluskey Minimum SOP", "complexity": 7, "complexity_reason": "Complete 4-variable Quine-McCluskey pipeline across Tables 1–3 (10 minterms -> 6 prime implicants) and Prime Implicant Chart reduction.", "title": "4-Var Quine-McCluskey Min SOP: f(a, b, c, d) = Σm(0, 1, 2, 5, 6, 7, 8, 9, 10, 14)", "statement": "Using the Quine-McCluskey (tabular) method, determine all prime implicants, construct the prime implicant chart, and find the minimum SOP expression for f(a, b, c, d) = Σm(0, 1, 2, 5, 6, 7, 8, 9, 10, 14).", "given": "f(a, b, c, d) = Σm(0, 1, 2, 5, 6, 7, 8, 9, 10, 14)", "solution": "Table 1 (by number of 1s — all combine):\n  G0: 0 (0000) | G1: 1 (0001), 2 (0010), 8 (1000) | G2: 5 (0101), 6 (0110), 9 (1001), 10 (1010) | G3: 7 (0111), 14 (1110)\n\nTable 2 (pairs):\n  (0,1)=000X ✓, (0,2)=00X0 ✓, (0,8)=X000 ✓\n  (1,5)=0X01 [PI: a'c'd], (1,9)=X001 ✓, (2,6)=0X10 ✓, (2,10)=X010 ✓, (8,9)=100X ✓, (8,10)=10X0 ✓\n  (5,7)=01X1 [PI: a'bd], (6,7)=011X [PI: a'bc], (6,14)=X110 ✓, (10,14)=1X10 ✓\n\nTable 3 (quads — all PIs):\n  (0,1,8,9)=X00X [PI: b'c'],  (0,2,8,10)=X0X0 [PI: b'd'],  (2,6,10,14)=XX10 [PI: cd']\n\nPrime Implicant Chart Reduction:\n• Essential PIs: b'c' (uniquely covers m9 -> covers 0,1,8,9);  cd' (uniquely covers m14 -> covers 2,6,10,14).\n• Remaining uncovered minterms {5, 7} are both covered by a'bd (5, 7).\n\nFinal Minimum SOP: f = b'c' + cd' + a'bd", "note": "Spans 7 lecture slide photos covering Tables 1–2, Tables 2–3, Prime Implicant list, and completed Prime Implicant Chart.", "sources": ["att.FgTqWur7gKOad3_Z3a7HrbnSCG5K004jVEq2NQ3_PPM.jpeg", "IMG_4562.heic", "att.HLMFHIm0QBPAVsK_ZO3oXrDOgbT-6fz2kFu42q88Y5U.jpeg", "att.JVvFzw9nS64uWdzaIfTnjXsFgRK7ev2b4KXQvv2ULHc.jpeg", "att.ezfcjefVB9bBrtbEZg4Tw9PMQJf7QTP1c9rd04VeG3k.jpeg", "att.tn8U_-rZwFwjEsauhtc-XnUV2w1o7u6Nwwt-pj6wWVA.jpeg", "att.YU2eXae-E26dg4XShhMwI8mMjK1EUetqSQqe1bj-mGM.jpeg"]}, {"id": "QM-02", "topic_id": "quine-mccluskey", "subtopic": "4-Variable Quine-McCluskey Minimum POS (via Complement f')", "complexity": 8, "complexity_reason": "4-variable Quine-McCluskey applied to the complement function f' (8 maxterms) across TI–TIII and PI chart, followed by De Morgan complementation into minimum POS.", "title": "4-Var Quine-McCluskey Min POS: f(a, b, c, d) = Σm(1, 3, 4, 5, 7, 9, 13, 15)", "statement": "Using the Quine-McCluskey tabular method on the complement function f', find the minimum Product-of-Sums (POS) expression for f(a, b, c, d) = Σm(1, 3, 4, 5, 7, 9, 13, 15) [equivalently f'(a, b, c, d) = Σm(0, 2, 6, 8, 10, 11, 12, 14)].", "given": "f(a, b, c, d) = Σm(1, 3, 4, 5, 7, 9, 13, 15)  =>  f'(a, b, c, d) = Σm(0, 2, 6, 8, 10, 11, 12, 14)", "solution": "Table TI for f' (all checked): G0: 0 | G1: 2, 8 | G2: 6, 10, 12 | G3: 11, 14\n\nTable TII (pairs):\n  (0,2)=00X0 ✓, (0,8)=X000 ✓ | (2,6)=0X10 ✓, (2,10)=X010 ✓, (8,10)=10X0 ✓, (8,12)=1X00 ✓\n  (6,14)=X110 ✓, (10,11)=101X [PI: ab'c], (10,14)=1X10 ✓, (12,14)=11X0 ✓\n\nTable TIII (quads — all PIs):\n  (0,2,8,10)=X0X0 [PI: b'd'],  (2,6,10,14)=XX10 [PI: cd'],  (8,10,12,14)=1XX0 [PI: ad']\n\nPI Chart for f' (cols 0, 2, 6, 8, 10, 11, 12, 14):\n  All 4 PIs are essential (uniquely covering 0, 6, 12, and 11 respectively):\n  f' = b'd' + cd' + ad' + ab'c\n\nComplement via De Morgan's Law:\n  f = (b'd' + cd' + ad' + ab'c)' = (b + d)(c' + d)(a' + d)(a' + b + c')", "note": "Spans 8 whiteboard photos from truth table through final De Morgan step. Note: in one earlier shot (att.jx6Bbn5h9R0seg624_uQvinZx_r5euiTvAclTauQrZU.jpeg), pair (10, 11) was temporarily checked off in error before being corrected as PI ab'c in later shots.", "sources": ["att.DnL7CbLqgjMf5aIysnKcNXB-3JnwDOjXtem41eVIwUo.jpeg", "att.jx6Bbn5h9R0seg624_uQvinZx_r5euiTvAclTauQrZU.jpeg", "att.9eXP7q9zkHDSEkBATvgTUrza2LXvqsd3aWV1idZF5p0.jpeg", "IMG_4565.heic", "IMG_4566.heic", "IMG_4567.heic", "IMG_4569.heic", "IMG_4570.heic"]}, {"id": "QM-03", "topic_id": "quine-mccluskey", "subtopic": "4-Variable Quine-McCluskey with Don't Cares & All Minimal Covers", "complexity": 8, "complexity_reason": "4-variable Quine-McCluskey with 9 minterms and 3 don't-care conditions requiring Prime Implicant Charts for every alternative minimum expression.", "title": "4-Var Quine-McCluskey with Don't Cares: f(a, b, c, d) = Σm(1, 3, 4, 5, 6, 7, 10, 12, 13) + Σd(2, 9, 15)", "statement": "Using the Quine-McCluskey method, simplify the following Boolean function. Show all prime implicant charts for each minimum expression: f(a, b, c, d) = Σm(1, 3, 4, 5, 6, 7, 10, 12, 13) + Σd(2, 9, 15).", "given": "f(a, b, c, d) = Σm(1, 3, 4, 5, 6, 7, 10, 12, 13) + Σd(2, 9, 15)", "solution": "No worked solution is shown on the slide (practice example).\n\nVerified Quine-McCluskey solution (for self-check):\n• Combine m ∪ d = {1, 2, 3, 4, 5, 6, 7, 9, 10, 12, 13, 15}.\n• Prime Implicants (7 total):\n  (1,3,5,7) = a'd,  (1,5,9,13) = c'd,  (4,5,6,7) = a'b,  (4,5,12,13) = bc',\n  (2,3,6,7) = a'c,  (5,7,13,15) = bd,  (2,10) = b'cd'\n• PI Chart over required minterms {1, 3, 4, 5, 6, 7, 10, 12, 13} (excluding don't cares 2, 9, 15):\n  Essential PIs:\n  - b'cd' (2, 10) uniquely covers m10\n  - bc' (4, 5, 12, 13) uniquely covers m12 (and also covers m4, m5, m13)\n  Remaining uncovered minterms {1, 3, 6, 7} can be covered by 2 additional quads in three ways:\n  (1) f = b'cd' + bc' + a'd + a'b\n  (2) f = b'cd' + bc' + a'd + a'c\n  (3) f = b'cd' + bc' + a'c + c'd", "note": "Unsolved lecture exercise on IMG_4563.heic; verified Quine-McCluskey solution provided above for study verification.", "sources": ["IMG_4563.heic"]}, {"id": "QM-04", "topic_id": "quine-mccluskey", "subtopic": "5-Variable Quine-McCluskey with Don't Cares (Full 32-Row Pipeline)", "complexity": 10, "complexity_reason": "Most complicated problem in the set: 5-variable (32-row) Quine-McCluskey minimization with 11 minterms and 4 don't cares, 3 reduction stages yielding 12 prime implicants, and a 12×11 Prime Implicant Chart requiring both essential and secondary cover selection.", "title": "5-Var Quine-McCluskey with Don't Cares: F(A,B,C,D,E) = Σm(0,2,3,5,8,11,13,20,25,26,30) + Σd(6,7,9,24)", "statement": "Using the Quine-McCluskey (tabular) method, construct the reduction tables and prime implicant chart to minimize the 5-variable Boolean function F(A, B, C, D, E) = Σm(0, 2, 3, 5, 8, 11, 13, 20, 25, 26, 30) + Σd(6, 7, 9, 24) into minimal SOP form.", "given": "F(A, B, C, D, E) = Σm(0, 2, 3, 5, 8, 11, 13, 20, 25, 26, 30) + Σd(6, 7, 9, 24)  (15 terms total; blue 1s = minterms, red 1s = don't cares on board truth table)", "solution": "Table I (grouped by count of 1s):\n  G0: 0 ✓ | G1: 2 ✓, 8 ✓ | G2: 3 ✓, 5 ✓, 6 ✓, 9 ✓, 20 [PI: AB'CD'E'], 24 ✓\n  G3: 7 ✓, 11 ✓, 13 ✓, 25 ✓, 26 ✓ | G4: 30 ✓\n\nTable II (pairs):\n  (0,2)=000X0 [PI: A'B'C'E'], (0,8)=0X000 [PI: A'C'D'E']\n  (2,3)=0001X ✓, (2,6)=00X10 ✓, (8,9)=0100X ✓, (8,24)=X1000 ✓\n  (3,7)=00X11 ✓, (3,11)=0X011 [PI: A'C'DE], (5,7)=001X1 [PI: A'B'CE], (5,13)=0X101 [PI: A'CD'E],\n  (6,7)=0011X ✓, (9,11)=010X1 [PI: A'BC'E], (9,13)=01X01 [PI: A'BD'E], (9,25)=X1001 ✓,\n  (24,25)=1100X ✓, (24,26)=110X0 [PI: ABC'E'] | (26,30)=11X10 [PI: ABDE']\n\nTable III (quads — both PIs):\n  (2,3,6,7)=00X1X [PI: A'B'D],  (8,9,24,25)=X100X [PI: BC'D']\n\n12×11 Prime Implicant Chart (required minterms only: 0, 2, 3, 5, 8, 11, 13, 20, 25, 26, 30):\n• Essential PIs (red checkmarks):\n  - (20)       AB'CD'E' (uniquely covers 20)\n  - (26,30)    ABDE'    (uniquely covers 30; also covers 26)\n  - (8,9,24,25) BC'D'   (uniquely covers 25; also covers 8)\n• Secondary cover for remaining minterms {0, 2, 3, 5, 11, 13} (blue dashes):\n  - (0,2)  A'B'C'E' (covers 0, 2)\n  - (3,11) A'C'DE   (covers 3, 11)\n  - (5,13) A'CD'E   (covers 5, 13)\n\nFinal Minimum SOP:\n  f = AB'CD'E' + ABDE' + BC'D' + A'B'C'E' + A'C'DE + A'CD'E", "note": "Spans 8 classroom whiteboard photos capturing the entire 32-row truth table, Tables I–III, the 12-row Prime Implicant Chart, and the final minimized expression.", "sources": ["att.AwgvCS18n8eqaHb_v4KzUbJR-S08IhyNvU1BCofy6G0.jpeg", "att.ELouskPXXlEiNveIR43Kmmw1OyUz9Z0xEQyZqq0gSPA.jpeg", "att.o6-dJRv9plW2NJiUGUTEJVSC9oSsHJEOi8NSqf79BNs.jpeg", "att.oax4462RPQQXKnfru_Nxu8YfbyUU2DmXl-PA_kGGse8.jpeg", "att.0I6vzHMj0vYVxQHdx1PYQnsQ2xOkQ-tZOErHdZZT5d8.jpeg", "att.v4tItS7lymcFOxvVRkkh9hbWwjTMt8HQ-q06GRLuEAs.jpeg", "IMG_4569.heic", "IMG_4570.heic", "IMG_4571.heic"]}, {"id": "OA-01", "topic_id": "op-amps", "subtopic": "Ideal Op-Amp Integrator Derivation", "complexity": 4, "complexity_reason": "Symbolic nodal-current derivation of an inverting op-amp integrator using virtual ground and the capacitor i–v integral relation.", "title": "Problem 6 (Integrator Circuit): Derive V₀ in terms of V_in, R, and C", "statement": "For an ideal inverting op-amp integrator circuit with input resistor R and feedback capacitor C, derive the output voltage expression V₀ in terms of V_in, R, and C.", "given": "Inverting terminal receives V_in through resistor R (current I_R); feedback capacitor C connects inverting terminal to V₀ (current I_C); non-inverting terminal grounded (0 V).", "solution": "I_R = (V_in - 0) / R = V_in / R\nI_C = C · d(0 - V₀)/dt = -C · dV₀/dt\nSet I_R = I_C and integrate both sides:\n  ∫ (V_in / R) dt = -C ∫ (dV₀ / dt) dt\n  V₀ = -(1 / RC) ∫ V_in dt", "note": "", "sources": ["att.gdoDHCj_ICO9MM8UsKwLWP7e1SGBdcjQS1qgK-X7N2I.jpeg"]}, {"id": "OA-02", "topic_id": "op-amps", "subtopic": "Ideal Op-Amp Differentiator Derivation", "complexity": 4, "complexity_reason": "Symbolic nodal-current derivation of an inverting op-amp differentiator using virtual ground and the capacitor i–v derivative relation.", "title": "Problem 7 (Differentiator Circuit): Derive V₀ in terms of V_in, R, and C", "statement": "For an ideal inverting op-amp differentiator circuit (hand-labeled 'DIFFERENCE CIRCUIT' on the sheet) with input capacitor C and feedback resistor R, derive the output voltage expression V₀ in terms of V_in, R, and C.", "given": "Inverting terminal receives V_in through capacitor C (current I_C); feedback resistor R connects inverting terminal to V₀ (current I_R); non-inverting terminal grounded (0 V).", "solution": "I_C = C · d(V_in - 0)/dt = C · dV_in/dt\nI_R = (0 - V₀) / R = -V₀ / R\nSet I_C = I_R:\n  -V₀ / R = C · dV_in/dt\n  V₀ = -RC · (dV_in / dt)", "note": "Handwritten heading on the sheet says 'DIFFERENCE CIRCUIT', though the schematic and derivation are for an op-amp differentiator circuit.", "sources": ["att.gdoDHCj_ICO9MM8UsKwLWP7e1SGBdcjQS1qgK-X7N2I.jpeg"]}, {"id": "OA-03", "topic_id": "op-amps", "subtopic": "Difference Amplifier Nodal Analysis", "complexity": 5, "complexity_reason": "Ideal op-amp difference amplifier nodal analysis across both inverting and non-inverting branches with virtual-short voltage Vx and asymmetric resistor ratio.", "title": "Problem 5 (Difference Amplifier): Find node voltage Vx and output V₀", "statement": "For the op-amp difference amplifier with V₁ = 1 V, V₂ = 1 V, R₁ = 1 kΩ, R₂ = 1 kΩ, Rₓ = 1 kΩ, and R_F = 2 kΩ, find the input node voltage Vₓ and set up/solve the equation for V₀.", "given": "V₁ = 1 V via R₁ = 1 kΩ to inverting input (node Vₓ) with feedback R_F = 2 kΩ to V₀; V₂ = 1 V via R₂ = 1 kΩ to non-inverting input (node Vₓ) with Rₓ = 1 kΩ to ground.", "solution": "Non-inverting node (I₂ = Iₓ):\n  (V₂ - Vₓ) / R₂ = (Vₓ - 0) / Rₓ  =>  (1 - Vₓ) / 1k = Vₓ / 1k\n  2Vₓ = 1  =>  Vₓ = 0.5 V = 500.00 mV  (boxed on sheet)\n\nInverting node setup (I₁ = I_F):\n  (V₁ - Vₓ) / R₁ = (Vₓ - V₀) / R_F  =>  (1 - 0.5) / 1k = (0.5 - V₀) / 2k\n  (Completing algebra beyond sheet): 0.5 × 2 = 0.5 - V₀  =>  1 = 0.5 - V₀  =>  V₀ = -0.5 V = -500.00 mV.", "note": "Handwritten sheet stops after boxing Vₓ = 500.00 mV and writing the inverting nodal equation; the final substitution V₀ = -0.5 V is included for completeness.", "sources": ["att.gdoDHCj_ICO9MM8UsKwLWP7e1SGBdcjQS1qgK-X7N2I.jpeg"]}], "reference_images": [{"filename": "att.EE6k7PJoUviLQdSNIgHQJzlz7BiEr2Mi-315TC81Bmc.jpeg", "title": "Blank 5-Variable K-Map Grid (AB vs. CDE) & 3-Bit Gray Code", "description": "Whiteboard template showing a blank 4×8 5-variable K-map grid (rows AB: 00, 01, 11, 10; cols CDE in 3-bit reflected Gray code: 000, 001, 011, 010, 110, 111, 101, 100). No specific problem."}, {"filename": "att.Hrial9cyRjbCebX0Wme7sn47aUygklaHoDd-mYSaceo.jpeg", "title": "Boolean Expression Anatomy Diagram (Output, Terms, Literals)", "description": "Whiteboard terminology diagram labeling F = B'D' + B'C + A'CD' with 'output', 'terms', 'one term', and 'literal'. No problem posed."}, {"filename": "IMG_4531.heic", "title": "Blank 5-Variable Diagonal-Split Karnaugh Map Reference Template", "description": "Lecture slide showing the cell numbering (0–15 for A=0 lower-right, 16–31 for A=1 upper-left) for a diagonal-split 5-variable K-map. No specific problem."}], "image_index": [{"filename": "att.0I6vzHMj0vYVxQHdx1PYQnsQ2xOkQ-tZOErHdZZT5d8.jpeg", "kind": "problem", "problem_ids": ["QM-04"], "note": "Mapped to QM-04"}, {"filename": "att.2JvQIjS9KNCmQHqb887ouAPR6jxu5jGOp6gktr34JJ8.jpeg", "kind": "problem", "problem_ids": ["KM-07"], "note": "Mapped to KM-07"}, {"filename": "att.4NkWVh33Fbv0vUXJhCO_Gam51XDYTEPM7yRmbrj0b_g.jpeg", "kind": "problem", "problem_ids": ["LC-03"], "note": "Mapped to LC-03"}, {"filename": "att.4XZUOAV7UZ3B1iBgWqWUSYTdhEw-EsSwqr--R_YtlR0.jpeg", "kind": "problem", "problem_ids": ["TT-06"], "note": "Mapped to TT-06"}, {"filename": "att.6fueuAOGZcem3nyhjcneqMDiV4OXY-lYyFqfjtFFwPM.jpeg", "kind": "problem", "problem_ids": ["CF-09"], "note": "Mapped to CF-09"}, {"filename": "att.92tHrFO-OXyu_aOwEync1_5GWsbprnTcj8hvUy0Q4ak.jpeg", "kind": "problem", "problem_ids": ["KM-08"], "note": "Mapped to KM-08"}, {"filename": "att.9eXP7q9zkHDSEkBATvgTUrza2LXvqsd3aWV1idZF5p0.jpeg", "kind": "problem", "problem_ids": ["QM-02"], "note": "Mapped to QM-02"}, {"filename": "att.Al06yh-NwvU4OLY-6bXPD-gJMNW8FAeajdI1t3NWwfU.jpeg", "kind": "problem", "problem_ids": ["BA-01", "BA-02", "BA-03", "BA-05"], "note": "Mapped to BA-01, BA-02, BA-03, BA-05"}, {"filename": "att.ArOHWAhwO4YRBNMMq-mrfztE6ipqYHdljIMk2n15Wys.jpeg", "kind": "problem", "problem_ids": ["KM-08", "KM-09"], "note": "Mapped to KM-08, KM-09"}, {"filename": "att.AwgvCS18n8eqaHb_v4KzUbJR-S08IhyNvU1BCofy6G0.jpeg", "kind": "problem", "problem_ids": ["QM-04"], "note": "Mapped to QM-04"}, {"filename": "att.Bjgj9Pmiftn9YAhqAKrZ4IJuM3GTK0OsfhI2jQWBbXA.jpeg", "kind": "problem", "problem_ids": ["CF-05"], "note": "Mapped to CF-05"}, {"filename": "att.BryFLTcauwph0OVT8Bly2pSNpPo8Sw2BbhzppA7YTrE.jpeg", "kind": "problem", "problem_ids": ["CF-09"], "note": "Mapped to CF-09"}, {"filename": "att.CB3ge8DT6Eo9v59qjsgmLg1wPkFKY16PKQ0CTBWB-bY.jpeg", "kind": "problem", "problem_ids": ["CF-03"], "note": "Mapped to CF-03"}, {"filename": "att.cYOwVc-DpakO2Y6gOA4i3GSEfkEj4_U5Y8A_93oonZA.jpeg", "kind": "problem", "problem_ids": ["KM-02"], "note": "Mapped to KM-02"}, {"filename": "att.dHSkctF0u-dl6Jj6VRjFNvEBMVL1NGiEXjP5zps66UM.jpeg", "kind": "problem", "problem_ids": ["KM-05", "KM-06"], "note": "Mapped to KM-05, KM-06"}, {"filename": "att.DnL7CbLqgjMf5aIysnKcNXB-3JnwDOjXtem41eVIwUo.jpeg", "kind": "problem", "problem_ids": ["QM-02"], "note": "Mapped to QM-02"}, {"filename": "att.EE6k7PJoUviLQdSNIgHQJzlz7BiEr2Mi-315TC81Bmc.jpeg", "kind": "reference", "problem_ids": [], "note": "Reference/Template: Blank 5-Variable K-Map Grid (AB vs. CDE) & 3-Bit Gray Code"}, {"filename": "att.eHFpSov8xMuY3NMKFQyHOWXPzqiJtbPxngs2mi05LX8.jpeg", "kind": "problem", "problem_ids": ["KM-05", "KM-06"], "note": "Mapped to KM-05, KM-06"}, {"filename": "att.ELouskPXXlEiNveIR43Kmmw1OyUz9Z0xEQyZqq0gSPA.jpeg", "kind": "problem", "problem_ids": ["QM-04"], "note": "Mapped to QM-04"}, {"filename": "att.ezfcjefVB9bBrtbEZg4Tw9PMQJf7QTP1c9rd04VeG3k.jpeg", "kind": "problem", "problem_ids": ["QM-01"], "note": "Mapped to QM-01"}, {"filename": "att.FgTqWur7gKOad3_Z3a7HrbnSCG5K004jVEq2NQ3_PPM.jpeg", "kind": "problem", "problem_ids": ["QM-01"], "note": "Mapped to QM-01"}, {"filename": "att.g3BkMcvnkY9jn7Va0_HZDJLqvd0qT4-YGT4zInSTXuI.jpeg", "kind": "problem", "problem_ids": ["KM-07"], "note": "Mapped to KM-07"}, {"filename": "att.Gbf_X0S_VmYyMTAB7qACk20vq0pESw5olx_iSfm9q9c.jpeg", "kind": "problem", "problem_ids": ["LC-01"], "note": "Mapped to LC-01"}, {"filename": "att.gdoDHCj_ICO9MM8UsKwLWP7e1SGBdcjQS1qgK-X7N2I.jpeg", "kind": "problem", "problem_ids": ["OA-01", "OA-02", "OA-03"], "note": "Mapped to OA-01, OA-02, OA-03"}, {"filename": "att.gYBgpDFVNKtjbzw9nLr5TIM66NXSk-lPG5qWHEl3MvY.jpeg", "kind": "problem", "problem_ids": ["BA-06", "BA-07", "BA-08", "BA-14", "BA-15"], "note": "Mapped to BA-06, BA-07, BA-08, BA-14, BA-15"}, {"filename": "att.H4Xt7O0A_BRok28T5TkL4vtUz5TYft8RcrxM7wwaQJE.jpeg", "kind": "problem", "problem_ids": ["TT-03"], "note": "Mapped to TT-03"}, {"filename": "att.HLMFHIm0QBPAVsK_ZO3oXrDOgbT-6fz2kFu42q88Y5U.jpeg", "kind": "problem", "problem_ids": ["QM-01"], "note": "Mapped to QM-01"}, {"filename": "att.hpBECgontTHSCoEF2ps8W5UmwsbfkUINSxfMVen00Pc.jpeg", "kind": "problem", "problem_ids": ["CF-07"], "note": "Mapped to CF-07"}, {"filename": "att.Hrial9cyRjbCebX0Wme7sn47aUygklaHoDd-mYSaceo.jpeg", "kind": "reference", "problem_ids": [], "note": "Reference/Template: Boolean Expression Anatomy Diagram (Output, Terms, Literals)"}, {"filename": "att.Hvh9z_DB7N5Bo-dk-CDihrcbhnAgxDutFhU765uZHaA.jpeg", "kind": "problem", "problem_ids": ["KM-08", "KM-09"], "note": "Mapped to KM-08, KM-09"}, {"filename": "att.ILr621Y3Wu1WYPjv2dgt5qwaPiX0fOwxG8iy5XjPDCg.jpeg", "kind": "problem", "problem_ids": ["TT-02"], "note": "Mapped to TT-02"}, {"filename": "att.jQXM480XSRK3Q41kvqk3AErQCdDJhMDYu9Mu-vjANSU.jpeg", "kind": "problem", "problem_ids": ["CF-05"], "note": "Mapped to CF-05"}, {"filename": "att.JVvFzw9nS64uWdzaIfTnjXsFgRK7ev2b4KXQvv2ULHc.jpeg", "kind": "problem", "problem_ids": ["QM-01"], "note": "Mapped to QM-01"}, {"filename": "att.jx6Bbn5h9R0seg624_uQvinZx_r5euiTvAclTauQrZU.jpeg", "kind": "problem", "problem_ids": ["QM-02"], "note": "Mapped to QM-02"}, {"filename": "att.K779rP89ZM8CmAz0_2QLsYpBv7SHJCOWI7-lUhtAyb8.jpeg", "kind": "problem", "problem_ids": ["TT-03", "TT-04"], "note": "Mapped to TT-03, TT-04"}, {"filename": "att.Knj5HZIz1x67kcANqzM-sjD3mRlpEDJ3JyDhtDCV-N4.jpeg", "kind": "problem", "problem_ids": ["KM-05", "KM-06"], "note": "Mapped to KM-05, KM-06"}, {"filename": "att.l3A6GvgbIvhgoLuzG-d2CsdplDNS_5MIx4_hNpevD3E.jpeg", "kind": "problem", "problem_ids": ["CF-09"], "note": "Mapped to CF-09"}, {"filename": "att.l9mWFOGFDWQBVvPF7HfM6HGQHSITs3OJHxhjqlVtXLA.jpeg", "kind": "problem", "problem_ids": ["TT-05"], "note": "Mapped to TT-05"}, {"filename": "att.llrxmjHxChjkwoM-rFWNh8lPreuE-AgOQL_XJnd2liI.jpeg", "kind": "problem", "problem_ids": ["KM-09"], "note": "Mapped to KM-09"}, {"filename": "att.MaYFEfzfRbpNuRj1ufd2jyHMrKPV2tNEdAcC1yqZujo.jpeg", "kind": "problem", "problem_ids": ["BA-13"], "note": "Mapped to BA-13"}, {"filename": "att.o6-dJRv9plW2NJiUGUTEJVSC9oSsHJEOi8NSqf79BNs.jpeg", "kind": "problem", "problem_ids": ["QM-04"], "note": "Mapped to QM-04"}, {"filename": "att.oax4462RPQQXKnfru_Nxu8YfbyUU2DmXl-PA_kGGse8.jpeg", "kind": "problem", "problem_ids": ["QM-04"], "note": "Mapped to QM-04"}, {"filename": "att.ORQiidIwmivElNZ6h2kEF5x--MkKKXRT7Ud1jru2N8U.jpeg", "kind": "problem", "problem_ids": ["TT-01", "TT-06"], "note": "Mapped to TT-01, TT-06"}, {"filename": "att.osDfgY40jaBjyq9NW1uVDZFsVuPviiK0zRRZ79_nT00.jpeg", "kind": "problem", "problem_ids": ["TT-05"], "note": "Mapped to TT-05"}, {"filename": "att.ptvSM_grM2rnsEErjr6kiUsjrrA_Z0euxHTM0FmNULA.jpeg", "kind": "problem", "problem_ids": ["BA-16", "BA-17"], "note": "Mapped to BA-16, BA-17"}, {"filename": "att.Qaa1UH5SiRTJ5uCruBSxn_aBQAvVJbcyv7gW2yMQIKw.jpeg", "kind": "problem", "problem_ids": ["CF-05"], "note": "Mapped to CF-05"}, {"filename": "att.qBgt9KwteJLXmfr3VH2MKmJszIiMkMpyimPtgRHTekM.jpeg", "kind": "problem", "problem_ids": ["LC-04"], "note": "Mapped to LC-04"}, {"filename": "att.qCv4Qz4roxuI5lsBnX5oCfXFr69RpzDSAOiD2hxC6nc.jpeg", "kind": "problem", "problem_ids": ["LC-03", "LC-04"], "note": "Mapped to LC-03, LC-04"}, {"filename": "att.Qtm2Dvi4Av4mkQNClvDiF44JH7YF2z3bSOTCOKdEbjQ.jpeg", "kind": "problem", "problem_ids": ["KM-01"], "note": "Mapped to KM-01"}, {"filename": "att.R9HKy-JkWRe044vSfV2l1MgCN0QP_E9zTiZolfy0Av8.jpeg", "kind": "problem", "problem_ids": ["BA-04", "CF-01", "CF-02"], "note": "Mapped to BA-04, CF-01, CF-02"}, {"filename": "att.ruD_Q46EzSYWkP1dDPUyMqSb2NjDNwX_AbCQrXM2HGk.jpeg", "kind": "problem", "problem_ids": ["CF-06"], "note": "Mapped to CF-06"}, {"filename": "att.SAEupzLY6A2xSG14B6Rh-cTzsx5zOdGYiUfXgT5oplE.jpeg", "kind": "problem", "problem_ids": ["KM-03"], "note": "Mapped to KM-03"}, {"filename": "att.SLeAG4xJkp5vB53BgaYVsAQ_Gcdc3jMUffUmJ3b057U.jpeg", "kind": "problem", "problem_ids": ["CF-04"], "note": "Mapped to CF-04"}, {"filename": "att.tn8U_-rZwFwjEsauhtc-XnUV2w1o7u6Nwwt-pj6wWVA.jpeg", "kind": "problem", "problem_ids": ["QM-01"], "note": "Mapped to QM-01"}, {"filename": "att.tsN8ojd6omuQ5QcsCvYsfouhk3eaF_b3ZSpUUmKuMoA.jpeg", "kind": "problem", "problem_ids": ["BA-09", "BA-10", "BA-12"], "note": "Mapped to BA-09, BA-10, BA-12"}, {"filename": "att.tXkzof7fwuq8LsnJsEnMWsjJt9GTk_zH-KjCDcCwxes.jpeg", "kind": "problem", "problem_ids": ["LC-02"], "note": "Mapped to LC-02"}, {"filename": "att.u1oBLm3dZIaFZBx2Gm4S1vIio4yULr8x82uRYEoyVzE.jpeg", "kind": "problem", "problem_ids": ["KM-03"], "note": "Mapped to KM-03"}, {"filename": "att.Uang6YWBXvto5Qt-I7MnZZSNFMIN5aqc71cKDAcegDc.jpeg", "kind": "problem", "problem_ids": ["BA-11"], "note": "Mapped to BA-11"}, {"filename": "att.v4tItS7lymcFOxvVRkkh9hbWwjTMt8HQ-q06GRLuEAs.jpeg", "kind": "problem", "problem_ids": ["QM-04"], "note": "Mapped to QM-04"}, {"filename": "att.vp-qg143WWsVLUekEhPDNWWgnD0xgyX__dPt2N0_RZc.jpeg", "kind": "problem", "problem_ids": ["CF-05"], "note": "Mapped to CF-05"}, {"filename": "att.vyIyEQbv2lQIIlGMy-yYZWrL9C0397AK2ks1a8mS3yE.jpeg", "kind": "problem", "problem_ids": ["KM-01", "KM-02", "KM-04", "KM-06"], "note": "Mapped to KM-01, KM-02, KM-04, KM-06"}, {"filename": "att.wXTnlzjFuOSRJdYKyRtbTfGDdFHdeAJBU08qLODp6Xg.jpeg", "kind": "problem", "problem_ids": ["CF-07"], "note": "Mapped to CF-07"}, {"filename": "att.XE9PwoMTHfnf8ZCvpL3kMJYveKURpHEJfDFUL4LnHYI.jpeg", "kind": "problem", "problem_ids": ["BA-06", "BA-07", "BA-08", "BA-11", "BA-14", "BA-15", "BA-16", "BA-17"], "note": "Mapped to BA-06, BA-07, BA-08, BA-11, BA-14, BA-15, BA-16, BA-17"}, {"filename": "att.xZaRcEq3o1m9oNsNp1PdRTPvJ9kNjAyfp2FbrzIVuUQ.jpeg", "kind": "problem", "problem_ids": ["KM-01", "KM-02", "KM-04", "KM-06"], "note": "Mapped to KM-01, KM-02, KM-04, KM-06"}, {"filename": "att.YB9TvedjIIvqZ9j-AC6Xk2eMZBGGA1V6XAioHvlp4jA.jpeg", "kind": "problem", "problem_ids": ["CF-05"], "note": "Mapped to CF-05"}, {"filename": "att.yf9eeBMR4-0LYuz94uMn_khKNZzuH4T-kMkVUdGIwZ4.jpeg", "kind": "problem", "problem_ids": ["TT-02"], "note": "Mapped to TT-02"}, {"filename": "att.Yoar2KalXZQkEctnU46zcurp2DCJz6lcTJTnzAMu5sI.jpeg", "kind": "problem", "problem_ids": ["CF-08"], "note": "Mapped to CF-08"}, {"filename": "att.YU2eXae-E26dg4XShhMwI8mMjK1EUetqSQqe1bj-mGM.jpeg", "kind": "problem", "problem_ids": ["QM-01"], "note": "Mapped to QM-01"}, {"filename": "IMG_4531.heic", "kind": "reference", "problem_ids": [], "note": "Reference/Template: Blank 5-Variable Diagonal-Split Karnaugh Map Reference Template"}, {"filename": "IMG_4532.heic", "kind": "problem", "problem_ids": ["KM-01", "KM-02", "KM-04", "KM-06"], "note": "Mapped to KM-01, KM-02, KM-04, KM-06"}, {"filename": "IMG_4533.heic", "kind": "problem", "problem_ids": ["KM-08", "KM-09"], "note": "Mapped to KM-08, KM-09"}, {"filename": "IMG_4556.heic", "kind": "problem", "problem_ids": ["KM-05", "KM-06"], "note": "Mapped to KM-05, KM-06"}, {"filename": "IMG_4558.heic", "kind": "problem", "problem_ids": ["KM-05", "KM-06"], "note": "Mapped to KM-05, KM-06"}, {"filename": "IMG_4559.heic", "kind": "problem", "problem_ids": ["KM-08", "KM-09"], "note": "Mapped to KM-08, KM-09"}, {"filename": "IMG_4560.heic", "kind": "problem", "problem_ids": ["KM-08"], "note": "Mapped to KM-08"}, {"filename": "IMG_4561.heic", "kind": "problem", "problem_ids": ["KM-09"], "note": "Mapped to KM-09"}, {"filename": "IMG_4562.heic", "kind": "problem", "problem_ids": ["QM-01"], "note": "Mapped to QM-01"}, {"filename": "IMG_4563.heic", "kind": "problem", "problem_ids": ["QM-03"], "note": "Mapped to QM-03"}, {"filename": "IMG_4565.heic", "kind": "problem", "problem_ids": ["QM-02"], "note": "Mapped to QM-02"}, {"filename": "IMG_4566.heic", "kind": "problem", "problem_ids": ["QM-02"], "note": "Mapped to QM-02"}, {"filename": "IMG_4567.heic", "kind": "problem", "problem_ids": ["QM-02"], "note": "Mapped to QM-02"}, {"filename": "IMG_4569.heic", "kind": "problem", "problem_ids": ["QM-02", "QM-04"], "note": "Mapped to QM-02, QM-04"}, {"filename": "IMG_4570.heic", "kind": "problem", "problem_ids": ["QM-02", "QM-04"], "note": "Mapped to QM-02, QM-04"}, {"filename": "IMG_4571.heic", "kind": "problem", "problem_ids": ["QM-04"], "note": "Mapped to QM-04"}]};
+
+const STORAGE_KEY = "logic_problem_bank_done_v1";
+const THEME_KEY = "logic_problem_bank_theme_v1";
+
+let state = {
+  view: "by-topic",
+  diff: "all",
+  topic: "all",
+  query: "",
+  allSolOpen: false,
+  done: new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]")),
+};
+
+const topicById = Object.fromEntries(DATA.topics.map(t => [t.id, t]));
+
+function esc(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function diffTier(score) {
+  if (score <= 3) return { key: "low", label: "Foundational", cls: "diff-low" };
+  if (score <= 6) return { key: "mid", label: "Intermediate", cls: "diff-mid" };
+  return { key: "high", label: "Advanced", cls: "diff-high" };
+}
+
+function updateStats() {
+  const total = DATA.problems.length;
+  const completed = state.done.size;
+  document.getElementById("statImages").textContent = `${DATA.total_images} / ${DATA.total_images}`;
+  document.getElementById("statProblems").textContent = total;
+  document.getElementById("statTopics").textContent = DATA.topics.length;
+  document.getElementById("statProgress").textContent = `${completed} / ${total}`;
+  document.getElementById("progressBar").style.width = `${total ? Math.round((completed / total) * 100) : 0}%`;
+}
+
+function renderTopicPills() {
+  const counts = {};
+  DATA.problems.forEach(p => { counts[p.topic_id] = (counts[p.topic_id] || 0) + 1; });
+  const container = document.getElementById("topicPills");
+  const allPill = `<button class="pill ${state.topic === 'all' ? 'active' : ''}" data-topic="all" type="button">All Topics <span class="pill-count">${DATA.problems.length}</span></button>`;
+  const pills = DATA.topics.map(t =>
+    `<button class="pill ${state.topic === t.id ? 'active' : ''}" data-topic="${t.id}" type="button">${esc(t.short)} <span class="pill-count">${counts[t.id] || 0}</span></button>`
+  ).join("");
+  container.innerHTML = allPill + pills;
+  container.querySelectorAll(".pill").forEach(btn => {
+    btn.addEventListener("click", () => {
+      state.topic = btn.dataset.topic;
+      renderTopicPills();
+      renderProblems();
+    });
+  });
+}
+
+function matchesFilters(p) {
+  if (state.topic !== "all" && p.topic_id !== state.topic) return false;
+  if (state.diff !== "all" && diffTier(p.complexity).key !== state.diff) return false;
+  if (state.query) {
+    const q = state.query.toLowerCase();
+    const hay = [
+      p.id, p.title, p.statement, p.given, p.solution, p.subtopic, p.note,
+      topicById[p.topic_id].name, ...p.sources
+    ].join(" ").toLowerCase();
+    if (!hay.includes(q)) return false;
+  }
+  return true;
+}
+
+function renderCard(p, showTopicTag) {
+  const tier = diffTier(p.complexity);
+  const isDone = state.done.has(p.id);
+  const srcHtml = p.sources.map(fn => {
+    const shortName = fn.length > 26 ? fn.slice(0, 14) + "…" + fn.slice(-10) : fn;
+    return `<span class="src-chip" title="${esc(fn)}">${esc(shortName)}</span>`;
+  }).join("");
+
+  return `
+    <article class="card ${isDone ? 'done' : ''}" id="prob-${p.id}">
+      <div class="card-top">
+        <div class="card-badges">
+          <span class="pid">${esc(p.id)}</span>
+          <span class="diff-badge ${tier.cls}">Complexity ${p.complexity}/10 · ${tier.label}</span>
+          ${showTopicTag ? `<span class="subtopic-tag">${esc(topicById[p.topic_id].short)}</span>` : ''}
+          <span class="subtopic-tag">${esc(p.subtopic)}</span>
+        </div>
+        <label class="done-toggle">
+          <input type="checkbox" data-done-id="${p.id}" ${isDone ? 'checked' : ''} />
+          Practiced
+        </label>
+      </div>
+      <h3 class="card-title">${esc(p.title)}</h3>
+      <p class="card-statement">${esc(p.statement)}</p>
+      <div class="given-box"><strong>Given:</strong> ${esc(p.given)}</div>
+      <div class="reason-line"><strong>Why Complexity ${p.complexity}/10:</strong> ${esc(p.complexity_reason)}</div>
+      ${p.note ? `<div class="erratum-note"><strong>Note:</strong> ${esc(p.note)}</div>` : ''}
+      <details class="sol-box" ${state.allSolOpen ? 'open' : ''}>
+        <summary>Worked Solution &amp; Final Answer</summary>
+        <div class="sol-content">${esc(p.solution)}</div>
+      </details>
+      <div class="card-sources">
+        <span>Source image${p.sources.length > 1 ? 's' : ''} (${p.sources.length}):</span>
+        ${srcHtml}
+      </div>
+    </article>
+  `;
+}
+
+function renderProblems() {
+  const filtered = DATA.problems.filter(matchesFilters);
+  const container = document.getElementById("problemContainer");
+  document.getElementById("resultCount").textContent =
+    `Showing ${filtered.length} of ${DATA.problems.length} problems`;
+
+  if (!filtered.length) {
+    container.innerHTML = `<div class="empty-state">No problems match your current search/filter settings.</div>`;
+    return;
+  }
+
+  if (state.view === "by-complexity") {
+    const sorted = [...filtered].sort((a, b) =>
+      a.complexity - b.complexity || topicById[a.topic_id].order - topicById[b.topic_id].order || a.id.localeCompare(b.id)
+    );
+    container.innerHTML = `<div class="card-list">${sorted.map(p => renderCard(p, true)).join("")}</div>`;
+  } else {
+    const sections = DATA.topics.map(t => {
+      const items = filtered
+        .filter(p => p.topic_id === t.id)
+        .sort((a, b) => a.complexity - b.complexity || a.id.localeCompare(b.id));
+      if (!items.length) return "";
+      const minC = items[0].complexity;
+      const maxC = items[items.length - 1].complexity;
+      return `
+        <section class="topic-section" id="topic-${t.id}">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title"><span class="topic-num">${t.order}</span>${esc(t.name)}</h2>
+              <p class="topic-desc">${esc(t.description)}</p>
+            </div>
+            <span class="topic-badge">${items.length} problem${items.length > 1 ? 's' : ''} · Level ${minC}${minC !== maxC ? ' → ' + maxC : ''}</span>
+          </div>
+          <div class="card-list">
+            ${items.map(p => renderCard(p, false)).join("")}
+          </div>
+        </section>
+      `;
+    }).join("");
+    container.innerHTML = sections;
+  }
+
+  container.querySelectorAll("input[data-done-id]").forEach(cb => {
+    cb.addEventListener("change", () => {
+      const id = cb.dataset.doneId;
+      if (cb.checked) state.done.add(id);
+      else state.done.delete(id);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify([...state.done]));
+      cb.closest(".card").classList.toggle("done", cb.checked);
+      updateStats();
+    });
+  });
+}
+
+function renderAppendix() {
+  document.getElementById("refGrid").innerHTML = DATA.reference_images.map(r => {
+    return `
+      <div class="ref-card">
+        <strong>${esc(r.title)}</strong>
+        <div style="color:var(--text-muted); margin-bottom:6px;">${esc(r.description)}</div>
+        <span class="src-chip">${esc(r.filename)}</span>
+      </div>
+    `;
+  }).join("");
+
+  document.getElementById("imgTableBody").innerHTML = DATA.image_index.map((item, idx) => {
+    const mapped = item.problem_ids.length
+      ? item.problem_ids.map(pid => `<a class="jump-link" href="#prob-${pid}" onclick="jumpToProblem('${pid}')">${pid}</a>`).join("")
+      : `<span style="color:var(--text-muted)">${esc(item.note)}</span>`;
+    return `
+      <tr>
+        <td>${idx + 1}</td>
+        <td><span class="src-chip">${esc(item.filename)}</span></td>
+        <td>${item.kind === 'problem' ? 'Problem / Example' : 'Reference Slide'}</td>
+        <td>${mapped}</td>
+      </tr>
+    `;
+  }).join("");
+}
+
+window.jumpToProblem = function(pid) {
+  state.topic = "all";
+  state.diff = "all";
+  state.query = "";
+  document.getElementById("searchInput").value = "";
+  document.querySelectorAll("[data-diff]").forEach(b => b.classList.toggle("active", b.dataset.diff === "all"));
+  renderTopicPills();
+  renderProblems();
+  setTimeout(() => {
+    const el = document.getElementById("prob-" + pid);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, 40);
+};
+
+// Bind controls
+document.getElementById("searchInput").addEventListener("input", e => {
+  state.query = e.target.value.trim();
+  renderProblems();
+});
+
+document.querySelectorAll("[data-view]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    state.view = btn.dataset.view;
+    document.querySelectorAll("[data-view]").forEach(b => b.classList.toggle("active", b === btn));
+    renderProblems();
+  });
+});
+
+document.querySelectorAll("[data-diff]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    state.diff = btn.dataset.diff;
+    document.querySelectorAll("[data-diff]").forEach(b => b.classList.toggle("active", b === btn));
+    renderProblems();
+  });
+});
+
+const toggleAllBtn = document.getElementById("toggleAllSolBtn");
+toggleAllBtn.addEventListener("click", () => {
+  state.allSolOpen = !state.allSolOpen;
+  toggleAllBtn.textContent = state.allSolOpen ? "Collapse All Solutions" : "Expand All Solutions";
+  document.querySelectorAll("details.sol-box").forEach(d => { d.open = state.allSolOpen; });
+});
+
+// Theme toggle
+const themeBtn = document.getElementById("themeBtn");
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  themeBtn.textContent = theme === "dark" ? "☀️ Light Mode" : "🌙 Dark Mode";
+  localStorage.setItem(THEME_KEY, theme);
+}
+applyTheme(localStorage.getItem(THEME_KEY) || "light");
+themeBtn.addEventListener("click", () => {
+  const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+  applyTheme(next);
+});
+
+// Initial render
+updateStats();
+renderTopicPills();
+renderProblems();
+renderAppendix();
+</script>
+</body>
+</html>
